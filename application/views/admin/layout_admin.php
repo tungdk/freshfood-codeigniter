@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<base href="<?php echo public_url('adminlte')?>/">
-	<title>@yield("title")</title>
+	<title>Trang quản trị</title>
 	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 	<!-- Theme style -->

@@ -13,7 +13,7 @@ class MY_Controller extends CI_Controller
 			{
 				$this->_check_login_admin();
 
-				
+
 				break;
 			}
 			default:
