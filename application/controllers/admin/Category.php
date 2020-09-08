@@ -7,6 +7,7 @@ Class Category extends MY_Controller{
 	}
 
 	function index(){
+		$this->output->cache(5);
 		$input = array();
 		$list = $this->category_model->get_list($input);
 		$this->data['list'] = $list;
@@ -16,6 +17,7 @@ Class Category extends MY_Controller{
 		$this->data['message'] = $message;
 
 		//load view
+		$this->data['page_title'] = 'Danh mục';
 		$this->data['temp'] = 'admin/category/index';
 		$this->load->view('admin/layout_admin', $this->data);
 
@@ -54,6 +56,7 @@ Class Category extends MY_Controller{
 			}
 		}
 
+		$this->data['page_title'] = 'Thêm mới danh mục';
 		$this->data['temp'] = 'admin/category/add';
 		$this->load->view('admin/layout_admin', $this->data);
 	}
@@ -100,7 +103,7 @@ Class Category extends MY_Controller{
 			}
 		}
 
-
+		$this->data['page_title'] = 'Cập nhật danh mục';
 		$this->data['temp'] = 'admin/category/edit';
 		$this->load->view('admin/layout_admin', $this->data);
 	}
