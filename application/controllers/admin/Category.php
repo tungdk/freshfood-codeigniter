@@ -7,7 +7,6 @@ Class Category extends MY_Controller{
 	}
 
 	function index(){
-		$this->output->cache(5);
 		$input = array();
 		$list = $this->category_model->get_list($input);
 		$this->data['list'] = $list;

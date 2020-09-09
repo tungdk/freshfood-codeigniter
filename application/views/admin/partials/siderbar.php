@@ -72,7 +72,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="<?= admin_url('category')?>" class="nav-link">
+							<a href="<?= admin_url('news')?>" class="nav-link">
 								<i class="nav-icon fas fa-newspaper"></i>
 								<p>
 									Bài viết
