@@ -45,7 +45,7 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="<?= admin_url('category')?>" class="nav-link">
+							<a href="<?= admin_url('product')?>" class="nav-link">
 								<i class="nav-icon fas fa-th"></i>
 								<p>
 									Sản phẩm
