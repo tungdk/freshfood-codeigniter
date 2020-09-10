@@ -27,7 +27,7 @@
 					<form action="" method="Post">
 						<div class="form-group">
 							<label>Tên danh mục</label>
-							<input type="name" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục">
+							<input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục">
 						</div>
 
 						<button type="submit" class="btn btn-primary">Thêm</button>
