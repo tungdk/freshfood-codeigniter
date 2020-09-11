@@ -49,7 +49,7 @@
 						<li class="active"><a href="./index.html">Trang chủ</a></li>
 						<li><a href="./shop-grid.html">Giới thiệu</a></li>
 						<li><a href="./blog.html">Tin tức</a></li>
-						<li><a href="./contact.html">Liên hệ</a></li>
+						<li><a href="<?php echo base_url('contact')?> ">Liên hệ</a></li>
 					</ul>
 				</nav>
 			</div>

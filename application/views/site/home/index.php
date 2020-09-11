@@ -9,9 +9,9 @@
 						<span>Danh mục</span>
 					</div>
 					<ul>
-						<?php foreach ($cate_list as $cate){ ?>
+						<?php foreach ($cate_list as $cate): ?>
 						<li><a href="#"><?= $cate->name?></a></li>
-						<?php } ?>
+						<?php endforeach; ?>
 
 					</ul>
 				</div>
@@ -30,9 +30,9 @@
 							<i class="fa fa-phone"></i>
 						</div>
 						<div class="hero__search__phone__text">
-							<?php if(isset($phone)){ ?>
+							<?php if(isset($phone)): ?>
 								<h5><?= $phone;?></h5>
-							<?php } ?>
+							<?php endif; ?>
 							<span>Hỗ trợ 24/7</span>
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 					</ol>
 					<div class="carousel-inner">
-						<?php foreach ($sliders as $index_slider => $slider){ ?>
+						<?php foreach ($sliders as $index_slider => $slider): ?>
 						<div class="carousel-item <?php ($index_slider==0)? 'active' : '' ?>">
 							<img class="d-block w-100" src="<?php echo base_url('uploads/sliders/'.$slider->thumbnail ) ?>" >
 							<div class="carousel-caption d-none d-md-block">
@@ -60,7 +60,7 @@
 								<p><?= $slider->description ?></p>
 							</div>
 						</div>
-						<?php } ?>
+						<?php endforeach; ?>
 
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
