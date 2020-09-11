@@ -29,7 +29,7 @@
 						</div>
 
 						<div class="header__top__right__auth">
-							<a href="<?= base_url('login');?>"><i class="fa fa-user"></i> Đăng nhập</a>
+							<a href="<?=  base_url('login');?>"><i class="fa fa-user"></i> Đăng nhập</a>
 						</div>
 					</div>
 				</div>
@@ -40,15 +40,21 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="header__logo">
-					<a href="./index.html"><img src="img/logo.png" alt=""></a>
+					<a href="<?php echo base_url('home'); ?>"><img src="img/logo.png" alt=""></a>
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
 						<li class="active"><a href="./index.html">Trang chủ</a></li>
-						<li><a href="./shop-grid.html">Giới thiệu</a></li>
-						<li><a href="./blog.html">Tin tức</a></li>
+						<li><a href="#">Danh mục</a>
+							<ul class="header__menu__dropdown">
+								<?php foreach ($cate_list as $cate): ?>
+								<li><a href="./shop-details.html"><?= $cate->name ?></a></li>
+								<?php endforeach; ?>
+							</ul>
+						</li>
+						<li><a href="<?php echo base_url('blog') ?>">Bài viết</a></li>
 						<li><a href="<?php echo base_url('contact')?> ">Liên hệ</a></li>
 					</ul>
 				</nav>
