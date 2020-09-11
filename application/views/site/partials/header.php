@@ -5,30 +5,31 @@
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__left">
 						<ul>
-							<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-							<li>Free Shipping for all Order of $99</li>
+							<?php if(isset($email)){ ?>
+								<li><i class="fa fa-envelope"></i>  <?= $email; ?> </li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="header__top__right">
 						<div class="header__top__right__social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-linkedin"></i></a>
-							<a href="#"><i class="fa fa-pinterest-p"></i></a>
+							<?php if(isset($facebook)){ ?>
+								<a href="<?= $facebook;?>"><i class="fa fa-facebook"></i></a>
+							<?php } ?>
+
+							<?php if(isset($twitter)){ ?>
+								<a href="<?= $twitter;?>"><i class="fa fa-twitter"></i></a>
+							<?php } ?>
+
+							<?php if(isset($linkedin)){ ?>
+								<a href="<?= $linkedin;?>"><i class="fa fa-linkedin"></i></a>
+							<?php } ?>
+
 						</div>
-						<div class="header__top__right__language">
-							<img src="img/language.png" alt="">
-							<div>English</div>
-							<span class="arrow_carrot-down"></span>
-							<ul>
-								<li><a href="#">Spanis</a></li>
-								<li><a href="#">English</a></li>
-							</ul>
-						</div>
+
 						<div class="header__top__right__auth">
-							<a href="#"><i class="fa fa-user"></i> Login</a>
+							<a href="<?= base_url('login');?>"><i class="fa fa-user"></i> Đăng nhập</a>
 						</div>
 					</div>
 				</div>
@@ -45,18 +46,10 @@
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
-						<li class="active"><a href="./index.html">Home</a></li>
-						<li><a href="./shop-grid.html">Shop</a></li>
-						<li><a href="#">Pages</a>
-							<ul class="header__menu__dropdown">
-								<li><a href="./shop-details.html">Shop Details</a></li>
-								<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-								<li><a href="./checkout.html">Check Out</a></li>
-								<li><a href="./blog-details.html">Blog Details</a></li>
-							</ul>
-						</li>
-						<li><a href="./blog.html">Blog</a></li>
-						<li><a href="./contact.html">Contact</a></li>
+						<li class="active"><a href="./index.html">Trang chủ</a></li>
+						<li><a href="./shop-grid.html">Giới thiệu</a></li>
+						<li><a href="./blog.html">Tin tức</a></li>
+						<li><a href="./contact.html">Liên hệ</a></li>
 					</ul>
 				</nav>
 			</div>
