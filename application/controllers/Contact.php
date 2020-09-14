@@ -41,6 +41,8 @@ class Contact extends MY_Controller{
 		$message = $this->session->flashdata('message');
 		$this->data['message'] = $message;
 
+		$this->data['hero_normal']= 'hero_normal';
+		
 		$this->data['page_title'] = 'Liên hệ';
 		$this->data['temp'] = 'site/contact/index';
 		$this->load->view('site/layout_site', $this->data);

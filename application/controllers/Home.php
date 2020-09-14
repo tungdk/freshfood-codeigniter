@@ -12,6 +12,7 @@ class Home extends MY_Controller{
 		$input =array();
 		$this->load->model('slider_model');
 		$input['where'] = array('status'=>1);
+		$input['limit'] = array(3, 0);
 		$sliders = $this->slider_model->get_list($input);
 		$this->data['sliders'] = $sliders;
 
