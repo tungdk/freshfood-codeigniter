@@ -1,7 +1,7 @@
 <div class="blog__sidebar">
 	<div class="blog__sidebar__search">
-		<form action="#">
-			<input type="text" placeholder="Tìm kiếm...">
+		<form action="<?php echo base_url('blog/blog_search')?>" method="post">
+			<input type="text" placeholder="Tìm kiếm..." name="keyword">
 			<button type="submit"><span class="icon_search"></span></button>
 		</form>
 	</div>
