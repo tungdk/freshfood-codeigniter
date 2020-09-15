@@ -12,49 +12,19 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="blog__item">
 					<div class="blog__item__pic">
-						<img src="<?php echo base_url('uploads/news/'.$new->image)?>" alt="">
+						<a href="<?php echo base_url('blog/'. $new->id .'-'. $new->slug.'.html')?>"><img src="<?php echo base_url('uploads/news/'.$new->image)?>" alt=""></a>
 					</div>
 					<div class="blog__item__text">
 						<ul>
-							<li><i class="fa fa-calendar-o"></i><?= $new->created_at?> </li>
+							<li><i class="fa fa-calendar-o"></i> <?= $new->created_at?> </li>
 <!--							<li><i class="fa fa-comment-o"></i> 5</li>-->
 						</ul>
-						<h5><a href="#"><?= $new->title?>></a></h5>
+						<h5><a href="<?php echo base_url('blog/'. $new->id .'-'. $new->slug.'.html')?>"><?= $new->title?></a></h5>
 						<p><?= $new->description?>></p>
 					</div>
 				</div>
 			</div>
 			<?php } ?>
-<!--			<div class="col-lg-4 col-md-4 col-sm-6">-->
-<!--				<div class="blog__item">-->
-<!--					<div class="blog__item__pic">-->
-<!--						<img src="img/blog/blog-2.jpg" alt="">-->
-<!--					</div>-->
-<!--					<div class="blog__item__text">-->
-<!--						<ul>-->
-<!--							<li><i class="fa fa-calendar-o"></i> May 4,2019</li>-->
-<!--							<li><i class="fa fa-comment-o"></i> 5</li>-->
-<!--						</ul>-->
-<!--						<h5><a href="#">6 ways to prepare breakfast for 30</a></h5>-->
-<!--						<p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class="col-lg-4 col-md-4 col-sm-6">-->
-<!--				<div class="blog__item">-->
-<!--					<div class="blog__item__pic">-->
-<!--						<img src="img/blog/blog-3.jpg" alt="">-->
-<!--					</div>-->
-<!--					<div class="blog__item__text">-->
-<!--						<ul>-->
-<!--							<li><i class="fa fa-calendar-o"></i> May 4,2019</li>-->
-<!--							<li><i class="fa fa-comment-o"></i> 5</li>-->
-<!--						</ul>-->
-<!--						<h5><a href="#">Visit the clean farm in the US</a></h5>-->
-<!--						<p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
 		</div>
 	</div>
 </section>

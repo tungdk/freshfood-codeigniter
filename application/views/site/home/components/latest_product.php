@@ -12,7 +12,7 @@
 							<?php } ?>
 							<a href="#" class="latest-product__item">
 								<div class="latest-product__item__pic">
-									<img src="<?php echo base_url('uploads/products/'.$latest_product->image)?>" alt="">
+									<img src="<?php echo base_url('uploads/products/'.$latest_product->image)?>" alt="" style="width: -1% !important;">
 								</div>
 								<div class="latest-product__item__text">
 									<h6><?= $latest_product->name ?></h6>

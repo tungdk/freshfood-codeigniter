@@ -47,7 +47,7 @@
 				<nav class="header__menu">
 					<ul>
 						<li class="active"><a href="<?php echo base_url('home'); ?>">Trang chủ</a></li>
-						<li><a href="#">Danh mục</a>
+						<li><a>Danh mục</a>
 							<ul class="header__menu__dropdown">
 								<?php foreach ($cate_list as $cate): ?>
 								<li><a href="./shop-details.html"><?= $cate->name ?></a></li>
