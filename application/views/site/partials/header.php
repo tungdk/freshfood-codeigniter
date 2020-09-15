@@ -95,9 +95,8 @@
 			<div class="col-lg-9">
 				<div class="hero__search">
 					<div class="hero__search__form">
-						<form action="#">
-
-							<input type="text" placeholder="Bạn đang cần mua?">
+						<form action="<?php echo base_url('/search')?>" method="GET">
+							<input type="text" placeholder="Bạn đang cần mua?" name="keyword">
 							<button type="submit" class="site-btn">Tìm kiếm</button>
 						</form>
 					</div>
