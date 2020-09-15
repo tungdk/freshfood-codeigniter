@@ -12,14 +12,14 @@
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="blog__item">
 							<div class="blog__item__pic">
-								<img src="<?php echo base_url('uploads/news/'.$news->image) ?>" alt="">
+								<a href="<?php echo base_url('blog/'. $news->id .'-'. $news->slug.'.html')?>"><img src="<?php echo base_url('uploads/news/'.$news->image) ?>" alt=""></a>
 							</div>
 							<div class="blog__item__text">
 								<ul>
 									<li><i class="fa fa-calendar-o"></i> <?= $news->created_at ?></li>
 									<li><i class="fa fa-eye"></i> <?= $news->views ?></li>
 								</ul>
-								<h5><a href="#"><?= $news->title ?></a></h5>
+								<h5><a href="<?php echo base_url('blog/'. $news->id .'-'. $news->slug.'.html')?>"><?= $news->title ?></a></h5>
 								<p><?= $news->description ?> </p>
 								<a href="<?php echo base_url('blog/'. $news->id .'-'. $news->slug.'.html')?>" class="blog__btn">Xem chi tiết<span class="arrow_right"></span></a>
 							</div>

@@ -8,11 +8,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-md-7">
-				<div class="blog__details__title">
-					<h3><?= $blog_details->title ?></h3>
-					<br>
-					<span><?= $blog_details->created_at ?></span>
-				</div>
 				<div class="blog__details__text">
 					<img src="<?php echo base_url('uploads/blogs/'.$blog_details->image)?>" alt="">
 					<p><?= $blog_details->content ?></p>
@@ -30,21 +25,20 @@
 								</div>
 							</div>
 						</div>
-<!--						<div class="col-lg-6">-->
-<!--							<div class="blog__details__widget">-->
-<!--								<ul>-->
-<!--									<li><span>Categories:</span> Food</li>-->
-<!--									<li><span>Tags:</span> All, Trending, Cooking, Healthy Food, Life Style</li>-->
-<!--								</ul>-->
-<!--								<div class="blog__details__social">-->
-<!--									<a href="#"><i class="fa fa-facebook"></i></a>-->
-<!--									<a href="#"><i class="fa fa-twitter"></i></a>-->
-<!--									<a href="#"><i class="fa fa-google-plus"></i></a>-->
-<!--									<a href="#"><i class="fa fa-linkedin"></i></a>-->
-<!--									<a href="#"><i class="fa fa-envelope"></i></a>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
+						<div class="col-lg-6">
+							<div class="blog__details__widget">
+								<ul>
+									<li>Ngày tạo: <?= $blog_details->created_at ?></li>
+								</ul>
+								<div class="blog__details__social">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="#"><i class="fa fa-envelope"></i></a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="blog__details__comment">

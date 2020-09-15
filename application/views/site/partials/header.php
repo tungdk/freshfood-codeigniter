@@ -46,11 +46,11 @@
 			<div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
-						<li class="active"><a href="<?php echo base_url('home'); ?>">Trang chủ</a></li>
-						<li><a>Danh mục</a>
+						<li><a href="<?php echo base_url('home'); ?>">Trang chủ</a></li>
+						<li><a >Danh mục</a>
 							<ul class="header__menu__dropdown">
 								<?php foreach ($cate_list as $cate): ?>
-								<li><a href="./shop-details.html"><?= $cate->name ?></a></li>
+								<li><a href="<?php echo base_url('category/'.$cate->id.'-'.$cate->slug.'.html')?>"><?= $cate->name ?></a></li>
 								<?php endforeach; ?>
 							</ul>
 						</li>
@@ -86,7 +86,7 @@
 					</div>
 					<ul>
 						<?php foreach ($cate_list as $cate): ?>
-							<li><a href="#"><?= $cate->name?></a></li>
+							<li><a href="<?php echo base_url('category/'.$cate->id.'-'.$cate->slug.'.html')?>"><?= $cate->name?></a></li>
 						<?php endforeach; ?>
 
 					</ul>

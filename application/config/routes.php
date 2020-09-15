@@ -53,4 +53,5 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['blog/(:num)-(:any)'] = 'blog/blog_details/$1';
-$route['/(:num)-(:any)'] = '/shop_details/index/$1';
+$route['(:num)-(:any)'] = 'shop_details/index/$1';
+$route['category/(:num)-(:any)'] = 'category/index/$1';

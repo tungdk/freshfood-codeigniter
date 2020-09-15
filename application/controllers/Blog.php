@@ -11,6 +11,7 @@ class Blog extends MY_Controller{
 		$input =array();
 		$input['order'] = array('views', 'DESC');
 		$input['limit'] = array(5, 0);
+		$input['where'] = array('status'=>1);
 		$views_news = $this->news_model->get_list($input);
 		$this->data['views_news'] = $views_news;
 	}
@@ -19,6 +20,7 @@ class Blog extends MY_Controller{
 		$input =array();
 		$input['order'] = array('created_at', 'DESC');
 		$input['limit'] = array(5, 0);
+		$input['where'] = array('status'=>1);
 		$recent_news = $this->news_model->get_list($input);
 		$this->data['recent_news'] = $recent_news;
 	}
@@ -26,10 +28,11 @@ class Blog extends MY_Controller{
 	function index(){
 		$input =array();
 		$input['order'] = array('views', 'DESC');
+		$input['where'] = array('status'=>1);
 		$list_news = $this->news_model->get_list($input);
 		$this->data['list_news'] = $list_news;
-		$this->data['hero_normal']= 'hero_normal';
 
+		$this->data['hero_normal']= 'hero_normal';
 		$this->data['page_title'] = 'Bài viết';
 		$this->data['temp'] = 'site/blog/index';
 		$this->load->view('site/layout_site', $this->data);
@@ -52,7 +55,7 @@ class Blog extends MY_Controller{
 		$this->recent_news();
 
 		$this->data['hero_normal']= 'hero_normal';
-		$this->data['page_title'] = 'Chi tiết bài viết';
+		$this->data['page_title'] = $blog_detail->title;
 		$this->data['temp'] = 'site/blog/blog-details';
 		$this->load->view('site/layout_site', $this->data);
 	}

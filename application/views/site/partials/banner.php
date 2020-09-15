@@ -5,7 +5,7 @@
 				<div class="breadcrumb__text">
 					<h2><?= $page_title ?></h2>
 					<div class="breadcrumb__option">
-						<a href="<?php echo base_url('home') ?>">Home</a>
+						<a href="<?php echo base_url('home') ?>">Trang chủ </a>
 						<span><?= $page_title ?></span>
 					</div>
 				</div>

@@ -16,7 +16,7 @@ class Shop_details extends MY_Controller{
 
 
 		$this->data['hero_normal']= 'hero_normal';
-		$this->data['page_title'] = 'Chi tiết sản phẩm';
+		$this->data['page_title'] = $product->name;
 		$this->data['temp'] = 'site/shop-details/index';
 		$this->load->view('site/layout_site', $this->data);
 	}
