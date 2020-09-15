@@ -3469,3 +3469,6 @@ ol {
 .error{
 	color: red !important;
 }
+ul {
+	list-style: none;
+}

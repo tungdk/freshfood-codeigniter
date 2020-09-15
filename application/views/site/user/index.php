@@ -3,7 +3,7 @@
 <?php if ($this->session->userdata('user_id_login')): ?>
 	<div class="section" style="margin-top: 50px">
 		<div class="container">
-			<div class="col-md-12">
+			<div class="row">
 				<div class="col-lg-3 account-left">
 					<div class="info-account" style="text-align: center">
 						<div class="name-account">
@@ -20,14 +20,12 @@
 							<li class="item-action"><a class="btn" href="<?php echo base_url('user') ?>"
 													   class="active-item">Tài khoản
 									của tôi</a></li>
-							<li class="item-action"><a class="btn" href="<?php echo base_url('logout') ?>">Đổi mật
-									khẩu</a></li>
-							<li class="item-action"><a class="btn" href="<?php echo base_url('logout') ?>">Thoát</a>
+							<li class="item-action"><a class="btn" href="<?php echo base_url('logout') ?>">Đăng xuất</a>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-5 account-right">
+				<div class="col-lg-9 account-right">
 					<div class="account-title">
 						Tài khoản của tôi
 					</div>
@@ -35,7 +33,7 @@
 					<p style="color:green; dislay:none;" class="error successChangeInfo"></p>
 					<hr>
 					<div class="account-body">
-						<form method="POST" action="" enctype="multipart/form-data">
+						<form method="POST" action="<?php echo base_url('user/edit') ?>" enctype="multipart/form-data">
 							<div class="info_user">
 								<div class="item-fill-user">
 									<div class="item-fill-user">
@@ -55,19 +53,32 @@
 										</div>
 									</div>
 									<div class="item-fill-user">
-										<div class="label_fill">Giới thiệu</div>
+										<div class="label_fill">Địa chỉ</div>
 										<div class="ctn_fill">
-                                    <textarea class="form-control" id="story" placeholder="Giới thiệu về bản thân"
-											  rows="3" name="story"
-									></textarea>
+											<input type="text" class="form-control" id="story" placeholder="Nhập địa chỉ"
+												   name="address" value="<?= $user->address ?>" required>
 										</div>
 									</div>
 									<div class="item-fill-user">
-										<div class="label_fill">Liên hệ</div>
+										<div class="label_fill">Số điện thoại</div>
 										<div class="ctn_fill">
-											<input type="text" class="form-control" id="contact"
-												   value="" placeholder="Liên hệ" name="contact"
+											<input type="number" class="form-control" id="contact"
+												   value="<?= $user->phone ?>" placeholder="Nhập số điện thoại" name="phone"
 											>
+										</div>
+									</div>
+
+									<div class="item-fill-user">
+										<div class="label_fill">Mật khẩu</div>
+										<div class="ctn_fill">
+											<input type="password" class="form-control" name="password">
+										</div>
+									</div>
+
+									<div class="item-fill-user">
+										<div class="label_fill">Nhập lại mật khẩu</div>
+										<div class="ctn_fill">
+											<input type="password" class="form-control" name="re_password">
 										</div>
 									</div>
 								</div>

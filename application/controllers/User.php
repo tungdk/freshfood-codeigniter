@@ -157,66 +157,68 @@ class User extends MY_Controller {
 	 */
 	function edit()
 	{
-		if(!$this->session->userdata('user_id_login'))
+		if($this->session->userdata('user_id_login'))
 		{
-			redirect(site_url('user/login'));
-		}
-		//lay thong tin cua thanh vien
-		$user_id = $this->session->userdata('user_id_login');
-		$user = $this->user_model->get_info($user_id);
-		if(!$user)
-		{
-			redirect();
-		}
-		$this->data['user']  = $user;
-
-
-		$this->load->library('form_validation');
-		$this->load->helper('form');
-
-		//neu ma co du lieu post len thi kiem tra
-		if($this->input->post())
-		{
-			$password = $this->input->post('password');
-
-			$this->form_validation->set_rules('name', 'Tên', 'required|min_length[8]');
-			if($password)
+			//lay thong tin cua thanh vien
+			$user_id = $this->session->userdata('user_id_login');
+			$user = $this->user_model->get_info($user_id);
+			if($user)
 			{
-				$this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[6]');
-				$this->form_validation->set_rules('re_password', 'Nhập lại mật khẩu', 'matches[password]');
+				$this->data['user']  = $user;
+
+
+				$this->load->library('form_validation');
+				$this->load->helper('form');
+
+				//neu ma co du lieu post len thi kiem tra
+				if($this->input->post())
+				{
+					$password = $this->input->post('password');
+
+					$this->form_validation->set_rules('name', 'Tên', 'required|min_length[8]');
+					if($password)
+					{
+						$this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[6]');
+						$this->form_validation->set_rules('re_password', 'Nhập lại mật khẩu', 'matches[password]');
+					}
+
+					$this->form_validation->set_rules('phone', 'Số điện thoại', 'required');
+					$this->form_validation->set_rules('address', 'Địa chỉ', 'required');
+
+					//nhập liệu chính xác
+					if($this->form_validation->run())
+					{
+						//them vao csdl
+						$data = array(
+							'name'     => $this->input->post('name'),
+							'phone'    => $this->input->post('phone'),
+							'address'  => $this->input->post('address'),
+						);
+						if($password)
+						{
+							$data['password'] = md5($password);
+						}
+						if($this->user_model->update($user_id, $data))
+						{
+							//tạo ra nội dung thông báo
+							$this->session->set_flashdata('message', 'Chỉnh sửa thông tin thành công');
+						}else{
+							$this->session->set_flashdata('message', 'Không thành công');
+						}
+						//chuyen tới trang danh sách quản trị viên
+						redirect(site_url('user'));
+					}
+				}
 			}
 
-			$this->form_validation->set_rules('phone', 'Số điện thoại', 'required');
-			$this->form_validation->set_rules('address', 'Địa chỉ', 'required');
-
-			//nhập liệu chính xác
-			if($this->form_validation->run())
-			{
-				//them vao csdl
-				$data = array(
-					'name'     => $this->input->post('name'),
-					'phone'    => $this->input->post('phone'),
-					'address'  => $this->input->post('address'),
-				);
-				if($password)
-				{
-					$data['password'] = md5($password);
-				}
-				if($this->user_model->update($user_id, $data))
-				{
-					//tạo ra nội dung thông báo
-					$this->session->set_flashdata('message', 'Chỉnh sửa thông tin thành công');
-				}else{
-					$this->session->set_flashdata('message', 'Không thành công');
-				}
-				//chuyen tới trang danh sách quản trị viên
-				redirect(site_url('user'));
-			}
 		}
+
 
 		//hiển thị ra view
-		$this->data['temp'] = 'site/user/edit';
-		$this->load->view('site/layout', $this->data);
+		$this->data['hero_normal']= 'hero_normal';
+		$this->data['page_title'] = 'Thông tin cá nhân';
+		$this->data['temp'] = 'site/user/index';
+		$this->load->view('site/layout_site', $this->data);
 	}
 
 	/*
