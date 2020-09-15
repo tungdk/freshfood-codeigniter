@@ -29,7 +29,7 @@
 						</div>
 
 						<div class="header__top__right__auth">
-							<a href="<?=  base_url('login');?>"><i class="fa fa-user"></i> Đăng nhập</a>
+							<?php $this->load->view('site/partials/account') ?>
 						</div>
 					</div>
 				</div>
