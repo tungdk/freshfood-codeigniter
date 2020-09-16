@@ -17,7 +17,7 @@
 		</div>
 		<div class="row featured__filter">
 			<?php foreach ($cate_list as $index_cate => $cate) {
-			$input['where'] = array('category_id' => $cate->id, 'featured' => 1);
+			$input['where'] = array('category_id' => $cate->id, 'featured' => 1, 'status'=>1);
 			$featured_products = $this->product_model->get_list($input);
 			foreach ($featured_products as $product) { ?>
 				<div class="col-lg-3 col-md-4 col-sm-6 mix <?php echo $cate->slug; ?>" <?php if($index_cate != 0) echo 'style="display: none;"'; ?>>
@@ -25,8 +25,7 @@
 						<div class="featured__item__pic set-bg"
 							 data-setbg="<?php echo  base_url('/uploads/products/' . $product->image); ?>">
 							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-retweet" title="Xem chi tiết"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart" title="Thêm vào giỏ hàng"></i></a></li>
+								<li><a href="" data-url="<?php echo base_url('cart/add/'.$product->id.'/1') ?> " class="add_to_cart"><i class="fa fa-shopping-cart" title="Thêm vào giỏ hàng"></i></a></li>
 							</ul>
 						</div>
 						<div class="featured__item__text">

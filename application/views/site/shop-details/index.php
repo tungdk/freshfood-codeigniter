@@ -23,11 +23,14 @@
 					<div class="product__details__quantity">
 						<div class="quantity">
 							<div class="pro-qty">
-								<input type="text" value="1">
+								<input type="text" value="1" id="quantity">
 							</div>
 						</div>
 					</div>
-					<a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
+					<script>
+						var s = document.getElementById('quantity').value;
+					</script>
+					<a href="" data-url="<?php echo base_url('cart/add/'.$product->id.'/1') ?> " class="primary-btn add_to_cart">Thêm vào giỏ hàng</a>
 				</div>
 			</div>
 			<div class="col-lg-12">
@@ -99,3 +102,4 @@
 	</div>
 </section>
 <!-- Related Product Section End -->
+<script></script>

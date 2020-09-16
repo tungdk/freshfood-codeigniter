@@ -2,9 +2,23 @@
 class Shop_details extends MY_Controller{
 	function index($id){
 		$this->load->model('product_model');
+		//Tăng view san phẩm lên 1
+		$product_details = $this->product_model->get_info($id);
+		$views = $product_details->views;
+		$data = array(
+			'views'      => $views + 1
+		);
+		$this->product_model->update($id, $data);
+
 		//lấy thông tin sản phẩm
 		$product = $this->product_model->get_info($id);
-		$this->data['product'] = $product;
+		if($product->status == 1)
+		{
+			$this->data['product'] = $product;
+		}
+		else{
+			redirect('home');
+		}
 
 		//4 sản phẩm liên quan
 		$input =array();

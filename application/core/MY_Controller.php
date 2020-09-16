@@ -11,7 +11,8 @@ class MY_Controller extends CI_Controller
 		switch ($controller){
 			case 'admin':
 			{
-				$this->_check_login_admin();
+				$this->load->helper('admin');
+				$this->_check_login();
 				break;
 			}
 			default:
@@ -44,10 +45,38 @@ class MY_Controller extends CI_Controller
 				$this->data['facebook'] = $setting_facebook->setting_value;
 				$this->data['twitter'] = $setting_twitter->setting_value;
 				$this->data['linkedin'] = $setting_linkedin->setting_value;
+
+				//kiem tra xem thanh vien da dang nhap hay chua
+				$user_id_login = $this->session->userdata('user_id_login');
+				$this->data['user_id_login'] = $user_id_login;
+				//neu da dang nhap thi lay thong tin cua thanh vien
+				if($user_id_login)
+				{
+					$this->load->model('user_model');
+					$user_info = $this->user_model->get_info($user_id_login);
+					$this->data['user_info'] = $user_info;
+				}
 			}
 		}
 	}
-	 private function _check_login_admin(){
+	/*
+	* Kiem tra trang thai dang nhap cua admin
+	*/
+	private function _check_login()
+	{
+		$controller = $this->uri->rsegment('1');
+		$controller = strtolower($controller);
 
-	 }
+		$login = $this->session->userdata('login');
+		//neu ma chua dang nhap,ma truy cap 1 controller khac login
+		if(!$login && $controller != 'login')
+		{
+			redirect(admin_url('login'));
+		}
+		//neu ma admin da dang nhap thi khong cho phep vao trang login nua.
+		if($login && $controller == 'login')
+		{
+			redirect(admin_url('home'));
+		}
+	}
 }
