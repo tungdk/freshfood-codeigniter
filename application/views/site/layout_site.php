@@ -34,7 +34,7 @@
     <script src="js/main.js"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	<script src="js/addtocart.js"></script>
+	<script src="js/cart.js"></script>
 
 </body>
 

@@ -257,4 +257,7 @@ class User extends MY_Controller {
 		$this->session->set_flashdata('message', 'Đăng xuất thành công');
 		redirect('home');
 	}
+
+
+
 }

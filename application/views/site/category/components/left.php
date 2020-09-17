@@ -5,7 +5,7 @@
 			<div class="product__item">
 				<div class="product__item__pic set-bg" data-setbg="<?php echo base_url('uploads/products/' . $product->image) ?>">
 					<ul class="product__item__pic__hover">
-						<li><a href="#"><i class="fa fa-shopping-cart" title="Thêm vào giỏ hàng"></i></a></li>
+						<li><a href="" data-url="<?php echo base_url('cart/add/'.$product->id.'/1') ?> " class="add_to_cart"><i class="fa fa-shopping-cart" title="Thêm vào giỏ hàng"></i></a></li>
 					</ul>
 				</div>
 				<div class="product__item__text">

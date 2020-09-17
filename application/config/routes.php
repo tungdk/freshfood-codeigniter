@@ -60,3 +60,7 @@ $route['category/(:num)-(:any)'] = 'category/index/$1';
 $route['login'] = 'user/login';
 $route['register'] = 'user/register';
 $route['logout'] = 'user/logout';
+
+$route['user/purchase'] = 'order/purchase';
+$route['user/purchase/delete/(:num)'] = 'order/delete/$1';
+$route['user/purchase/show/(:num)'] = 'order/show/$1';

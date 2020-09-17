@@ -17,7 +17,7 @@
 		</div>
 		<div class="row featured__filter">
 			<?php foreach ($cate_list as $index_cate => $cate) {
-			$input['where'] = array('category_id' => $cate->id, 'featured' => 1, 'status'=>1);
+			$input['where'] = array('category_id' => $cate->id, 'status'=>1);
 			$featured_products = $this->product_model->get_list($input);
 			foreach ($featured_products as $product) { ?>
 				<div class="col-lg-3 col-md-4 col-sm-6 mix <?php echo $cate->slug; ?>" <?php if($index_cate != 0) echo 'style="display: none;"'; ?>>

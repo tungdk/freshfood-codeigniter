@@ -62,7 +62,7 @@
 			<div class="col-lg-3">
 				<div class="header__cart">
 					<ul>
-						<li><a href="<?php echo base_url('cart')?>"><i class="fa fa-shopping-cart"></i> <span>3</span></a></li>
+						<li><a href="<?php echo base_url('cart')?>"><i class="fa fa-shopping-cart"></i> <span id="count_cart"><?php if($user_id_login):?> <?php echo $count_cart; else: echo '0'; endif;?></span></a></li>
 					</ul>
 				</div>
 			</div>

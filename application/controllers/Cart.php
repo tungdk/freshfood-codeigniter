@@ -12,7 +12,7 @@ class Cart extends MY_Controller
 	function index()
 	{
 		if ($this->session->userdata('user_id_login')) {
-			$this->db->select('* , (carts.quantity * products.price) AS total');
+			$this->db->select('* , carts.id AS cart_id, (carts.quantity * products.price) AS total');
 			$this->db->from('carts');
 			$this->db->join('products', 'carts.product_id = products.id');
 			$this->db->where('carts.user_id', $this->session->userdata('user_id_login'));
@@ -35,12 +35,9 @@ class Cart extends MY_Controller
 
 	function add($id, $quantity)
 	{
-//		$id = $this->input->GET('id', TRUE);
-//		echo
 		if (!$this->session->userdata('user_id_login')) {
 			$result = array('success' => false, 'message' => 'Bạn cần đăng nhập để mua hàng');
 			die(json_encode($result));
-//			return $this->response->setJSON($result);
 		}
 		//lay ra san pham muon them vao gio hang
 
@@ -88,10 +85,9 @@ class Cart extends MY_Controller
 	{
 		//thong gio hang
 		$carts = $this->cart->contents();
-		foreach ($carts as $key => $row)
-		{
+		foreach ($carts as $key => $row) {
 			//tong so luong san pham
-			$total_qty = $this->input->post('qty_'.$row['id']);
+			$total_qty = $this->input->post('qty_' . $row['id']);
 			$data = array();
 			$data['rowid'] = $key;
 			$data['qty'] = $total_qty;
@@ -102,40 +98,23 @@ class Cart extends MY_Controller
 		redirect('cart');
 	}
 
-
-	function checkout()
+	function delete($id)
 	{
-		if ($this->session->userdata('user_id_login')) {
-			if($this->input->post()){
-
-			}
-			else{
-
-			}
-			//lấy thông tin user
-			$this->load->model('user_model');
-			$user = $this->user_model->get_info($this->session->userdata('user_id_login'));
-			$this->data['user'] = $user;
-
-			//lấy thông tin giỏ hàng
-			$this->db->select('* , (carts.quantity * products.price) AS total');
-			$this->db->from('carts');
-			$this->db->join('products', 'carts.product_id = products.id');
-			$this->db->where('carts.user_id', $this->session->userdata('user_id_login'));
-			$query = $this->db->get();
-			$this->data['cart_products'] = $query->result();
-
-			$order_total = 0;
-
-			foreach ($query->result() as $row) {
-				$order_total += $row->total;
-			}
-			$this->data['order_total'] = $order_total;
+		if (!$this->session->userdata('user_id_login')) {
+			$result = array('success' => false, 'message' => "Bạn chưa đăng nhập");
+			die(json_encode($result));
 		}
+		$product_cart = $this->cart_model->get_info($id);
+//		die($product_cart);
 
-		$this->data['hero_normal'] = 'hero_normal';
-		$this->data['page_title'] = 'Đặt hàng';
-		$this->data['temp'] = 'site/cart/checkout';
-		$this->load->view('site/layout_site', $this->data);
+		if ($product_cart->user_id == $this->session->userdata('user_id_login')) {
+			$delete_product = $this->cart_model->delete($id);
+			if ($delete_product) {
+				$result = array('success' => true, 'message' => "Thành công");
+				die(json_encode($result));
+			}
+		}
+		$result = array('success' => false, 'message' => "Có lỗi xảy ra");
+		die(json_encode($result));
 	}
 }

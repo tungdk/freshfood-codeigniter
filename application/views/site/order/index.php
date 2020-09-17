@@ -28,7 +28,7 @@
 								</div>
 								<div class="checkout__input">
 									<p>Số điện thoại<span>*</span></p>
-									<input type="text" placeholder="Nhập số điện thoại"  name="phone" value="<?= $user->phone ?>">
+									<input type="text" name="phone" value="<?= $user->phone ?>">
 									<div class="error" id="phone"><?php echo form_error('phone')?></div>
 								</div>
 								<div class="checkout__input">

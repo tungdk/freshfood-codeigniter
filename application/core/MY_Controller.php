@@ -53,8 +53,14 @@ class MY_Controller extends CI_Controller
 				if($user_id_login)
 				{
 					$this->load->model('user_model');
-					$user_info = $this->user_model->get_info($user_id_login);
-					$this->data['user_info'] = $user_info;
+					$user = $this->user_model->get_info($user_id_login);
+					$this->data['user'] = $user;
+
+					$input =array();
+					$this->load->model('cart_model');
+					$input['where'] = array('user_id'=>$user_id_login);
+					$cart_product = $this->cart_model->get_list($input);
+					$this->data['count_cart'] = count($cart_product);
 				}
 			}
 		}

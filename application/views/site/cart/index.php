@@ -3,12 +3,19 @@
 <!-- Shoping Cart Section Begin -->
 <section class="shoping-cart spad">
 	<div class="container">
-		<?php if ($this->session->userdata('user_id_login')):
+		<?php if ($user_id_login):
 			if (!$cart_products): ?>
 				<div class="row">
-					<h3>Giỏ hàng của bạn đang trống. <a href="<?php echo base_url('home') ?>" class="btn btn-success">Tiếp tục mua
+
+					<?php if($this->session->flashdata('message')):?>
+					<div class="nNote nInformation hideit">
+						<h3><strong>Thông báo: </strong><?php echo $this->session->flashdata('message')?></h3>
+					</div>
+					<?php endif;?>
+					<br>
+					<h4>Giỏ hàng của bạn đang trống. <a href="<?php echo base_url('home') ?>" class="btn btn-success">Tiếp tục mua
 							sắm</a>
-					</h3>
+					</h4>
 				</div>
 			<?php else: ?>
 				<div class="row">
@@ -49,7 +56,10 @@
 											<?= $product->total ?>
 										</td>
 										<td class="shoping__cart__item__close">
-											<span class="icon_close"></span>
+											<a href=""
+											   data-url="<?php echo base_url('cart/delete/'.$product->cart_id) ?>"
+											   class="btn btn-default cart_delete"><span class="icon_close"></span></a>
+
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -74,7 +84,6 @@
 						<div class="shoping__checkout">
 							<h5>Thành tiền</h5>
 							<ul>
-								<!--						<li>Subtotal <span>$454.98</span></li>-->
 								<li>Total <span><?= $order_total ?> VNĐ</span></li>
 							</ul>
 							<a href="<?php echo base_url('order') ?>" class="primary-btn">Đặt hàng</a>
@@ -90,16 +99,4 @@
 		<?php endif; ?>
 	</div>
 </section>
-<!-- Shoping Cart Section End -->
-<script type="text/javascript">
-	window.onLoad = function () {
-		alert('ahihi');
-		var price_product = $('#price_product').val();
-		alert(price_product);
-		// console.log(price_product);
-		var quantity_product =;
-		var total = price_product * quantity_product;
-	}
 
-
-</script>

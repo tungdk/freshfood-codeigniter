@@ -18,8 +18,9 @@
 					<div class="list-action">
 						<ul>
 							<li class="item-action"><a class="btn" href="<?php echo base_url('user') ?>"
-													   class="active-item">Tài khoản
-									của tôi</a></li>
+													   class="active-item">Tài khoản của tôi</a></li>
+							<li class="item-action"><a class="btn" href="<?php echo base_url('user/purchase') ?>"
+													   >Đơn mua</a></li>
 							<li class="item-action"><a class="btn" href="<?php echo base_url('logout') ?>">Đăng xuất</a>
 							</li>
 						</ul>
@@ -96,16 +97,3 @@
 		<h3 style="color: red"><i>Bạn chưa đăng nhập</i></h3>
 	</div>
 <?php endif; ?>
-<!--@endsection-->
-<!---->
-<!--@section('js')-->
-<!--<script type="text/javascript">-->
-<!--	@if(!Auth::check()){-->
-<!--		$(window).load(function () {-->
-<!--			openLoginModal();-->
-<!--		});-->
-<!--	}-->
-<!--	@endif-->
-<!--</script>-->
-<!--@endsection-->
-
