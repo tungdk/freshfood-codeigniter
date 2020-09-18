@@ -15,9 +15,13 @@ class Shop_details extends MY_Controller{
 		if($product->status == 1)
 		{
 			$this->data['product'] = $product;
+			$this->data['page_title'] = $product->name;
+
 		}
 		else{
-			redirect('home');
+			$this->data['product'] = '';
+			$this->data['page_title'] = 'Không tìm thấy sản phẩm';
+
 		}
 
 		//4 sản phẩm liên quan
@@ -30,7 +34,6 @@ class Shop_details extends MY_Controller{
 
 
 		$this->data['hero_normal']= 'hero_normal';
-		$this->data['page_title'] = $product->name;
 		$this->data['temp'] = 'site/shop-details/index';
 		$this->load->view('site/layout_site', $this->data);
 	}

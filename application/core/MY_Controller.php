@@ -6,13 +6,13 @@ class MY_Controller extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-
+		date_default_timezone_set('Asia/Jakarta');
 		$controller = $this->uri->segment(1);
 		switch ($controller){
 			case 'admin':
 			{
-				$this->load->helper('admin');
 				$this->_check_login();
+				$this->load->helper('admin');
 				break;
 			}
 			default:
@@ -21,8 +21,6 @@ class MY_Controller extends CI_Controller
 				$this->load->model('category_model');
 				$cate_list = $this->category_model->get_list();
 				$this->data['cate_list'] = $cate_list;
-
-
 
 				//lấy thông tin setting
 				$this->load->model('setting_model');
@@ -73,16 +71,11 @@ class MY_Controller extends CI_Controller
 		$controller = $this->uri->rsegment('1');
 		$controller = strtolower($controller);
 
-		$login = $this->session->userdata('login');
+		$level_login = $this->session->userdata('user_level_login');
 		//neu ma chua dang nhap,ma truy cap 1 controller khac login
-		if(!$login && $controller != 'login')
+		if(!$level_login && $level_login != 1)
 		{
-			redirect(admin_url('login'));
-		}
-		//neu ma admin da dang nhap thi khong cho phep vao trang login nua.
-		if($login && $controller == 'login')
-		{
-			redirect(admin_url('home'));
+			redirect('home');
 		}
 	}
 }

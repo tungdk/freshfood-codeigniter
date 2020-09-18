@@ -3,16 +3,15 @@
 <!-- Shoping Cart Section Begin -->
 <section class="shoping-cart spad">
 	<div class="container">
+		<?php if($this->session->flashdata('message')):?>
+			<div class="nNote nInformation hideit">
+				<h3><strong>Thông báo: </strong><?php echo $this->session->flashdata('message')?></h3>
+			</div>
+		<?php endif;?>
+		<br>
 		<?php if ($user_id_login):
 			if (!$cart_products): ?>
 				<div class="row">
-
-					<?php if($this->session->flashdata('message')):?>
-					<div class="nNote nInformation hideit">
-						<h3><strong>Thông báo: </strong><?php echo $this->session->flashdata('message')?></h3>
-					</div>
-					<?php endif;?>
-					<br>
 					<h4>Giỏ hàng của bạn đang trống. <a href="<?php echo base_url('home') ?>" class="btn btn-success">Tiếp tục mua
 							sắm</a>
 					</h4>
@@ -43,7 +42,7 @@
 											</a>
 										</td>
 										<td class="shoping__cart__price price_product">
-											<span id="price_product"><?= $product->price ?></span> VNĐ
+											<span id="price_product"><?php echo number_format($product->price) ?></span> VNĐ
 										</td>
 										<td class="shoping__cart__quantity quantity_product">
 											<div class="quantity">
@@ -53,7 +52,7 @@
 											</div>
 										</td>
 										<td class="shoping__cart__total">
-											<?= $product->total ?>
+											<?php echo number_format($product->total) ?>
 										</td>
 										<td class="shoping__cart__item__close">
 											<a href=""

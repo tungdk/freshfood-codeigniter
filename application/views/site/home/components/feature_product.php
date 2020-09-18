@@ -30,7 +30,7 @@
 						</div>
 						<div class="featured__item__text">
 							<h6><a href="<?php echo base_url('/'.$product->id.'-'.$product->slug.'.html')?>"><?= $product->name ?></a></h6>
-							<h5><?= $product->price ?> VNĐ</h5>
+							<h5><?php echo number_format($product->price) ?> đ</h5>
 						</div>
 					</div>
 				</div>

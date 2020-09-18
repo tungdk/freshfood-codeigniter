@@ -52,7 +52,7 @@
 							<tr>
 								<th scope="row"><?= $set->id ?></th>
 								<td><?= $set->setting_key ?></td>
-								<td><?= $set->setting_value ?></td>
+								<td><textarea rows="4" cols="50" disabled><?= $set->setting_value ?></textarea></td>
 								<td>
 									<a href="<?= admin_url('setting/edit/'.$set->id)?>" class="btn btn-success">Sửa</a>
 								</td>

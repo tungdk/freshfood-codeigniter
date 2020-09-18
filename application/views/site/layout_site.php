@@ -22,7 +22,7 @@
     <!-- Footer Section Begin -->
    <?php $this->load->view('site/partials/footer')?>
     <!-- Footer Section End -->
-
+	<?php $this->load->view('site/partials/back_to_top');?>
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

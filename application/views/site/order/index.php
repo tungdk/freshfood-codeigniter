@@ -42,10 +42,10 @@
 									<div class="checkout__order__products">Sản phẩm <span>Tổng tiền</span></div>
 									<ul>
 										<?php foreach ($cart_products as $product): ?>
-											<li><?= $product->name ?><span><?= $product->price ?></span></li>
+											<li><?= $product->name ?><span><?php echo number_format($product->price) ?></span></li>
 										<?php endforeach; ?>
 									</ul>
-									<div class="checkout__order__total">Thành tiền <span><?= $order_total ?> VNĐ</span></div>
+									<div class="checkout__order__total">Thành tiền <span><?php echo number_format($order_total) ?> VNĐ</span></div>
 									<button type="submit" class="site-btn">Xác nhận đặt hàng</button>
 								</div>
 							</div>

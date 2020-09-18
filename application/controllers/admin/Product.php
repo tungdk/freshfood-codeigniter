@@ -11,13 +11,31 @@ class Product extends MY_Controller
 
 	function index()
 	{
-		$input = array();
-		$list = $this->product_model->get_list($input);
-		$this->data['list'] = $list;
+		$segment = $this->uri->segment(4);
+		$this->db->select('*, categories.name AS category_name, products.id AS product_id, products.name AS product_name');
+		$this->db->from('products');
+		$this->db->join('categories', 'products.category_id = categories.id');
+
+		if($segment == 'active'){
+			$this->db->where('products.status',1);
+			$this->db->where('products.amount >',0);
+		}
+		elseif ($segment == 'soldout'){
+			$this->db->where('products.amount',0);
+			$this->db->where('products.status',1);
+		}
+		elseif ($segment == 'unlisted'){
+			$this->db->where('products.status',0);
+		}
+
+		$query = $this->db->get();
+		$this->data['list'] = $query->result();
+
 
 		//lay nội dung của biến message
 		$message = $this->session->flashdata('message');
 		$this->data['message'] = $message;
+
 
 		//load view
 		$this->data['page_title'] = 'Sản phẩm';
@@ -37,7 +55,7 @@ class Product extends MY_Controller
 
 			$this->form_validation->set_rules('name', 'Tên sản phẩm', 'required');
 			$this->form_validation->set_rules('price', 'Giá sản phẩm', 'required');
-			$this->form_validation->set_rules('discount', 'Giá sản phẩm', 'required');
+			$this->form_validation->set_rules('amount', 'Giá sản phẩm', 'required|integer|greater_than_equal_to[0]');
 			$this->form_validation->set_rules('image', 'Ảnh', 'required');
 			$this->form_validation->set_rules('content', 'Nội dung', 'required');
 			$this->form_validation->set_rules('category_id', 'Danh mục', 'required');
@@ -61,10 +79,10 @@ class Product extends MY_Controller
 					'slug' => create_slug($this->input->post('name')),
 					'image' => $this->input->post('image'),
 					'price' => $this->input->post('price'),
-					'discount' => $this->input->post('discount'),
+					'amount' => $this->input->post('amount'),
 					'content' => $this->input->post('content'),
 					'category_id' => $this->input->post('category_id'),
-					'created_at' => now(),
+					'created_at' => date('Y-m-d H:i:s'),
 					'status' => $status,
 				);
 				//them moi vao csdl
@@ -117,7 +135,7 @@ class Product extends MY_Controller
 		if ($this->input->post()) {
 			$this->form_validation->set_rules('name', 'Tên sản phẩm', 'required');
 			$this->form_validation->set_rules('price', 'Giá sản phẩm', 'required');
-			$this->form_validation->set_rules('discount', 'Giá sản phẩm', 'required');
+			$this->form_validation->set_rules('amount', 'Giá sản phẩm', 'required|integer|greater_than_equal_to[0]');
 			$this->form_validation->set_rules('content', 'Nội dung', 'required');
 			$this->form_validation->set_rules('category_id', 'Danh mục', 'required');
 
@@ -142,7 +160,7 @@ class Product extends MY_Controller
 						'image' => $this->input->post('image'),
 						'price' => $this->input->post('price'),
 						'category_id' => $this->input->post('category_id'),
-						'discount' => $this->input->post('discount'),
+						'amount' => $this->input->post('amount'),
 						'content' => $this->input->post('content'),
 						'status' => $status,
 					);
@@ -152,7 +170,7 @@ class Product extends MY_Controller
 						'name' => $this->input->post('name'),
 						'slug' => create_slug($this->input->post('name')),
 						'price' => $this->input->post('price'),
-						'discount' => $this->input->post('discount'),
+						'amount' => $this->input->post('amount'),
 						'category_id' => $this->input->post('category_id'),
 						'content' => $this->input->post('content'),
 						'status' => $status,
@@ -189,20 +207,27 @@ class Product extends MY_Controller
 			$this->session->set_flashdata('message', 'Không tồn tại sản phẩm này');
 			redirect(admin_url('product'));
 		}
-		if ($product->discount > 0) {
-			$this->session->set_flashdata('message', 'Sản phẩm còn trong cửa hàng, không thể xoá');
-			redirect(admin_url('product'));
+//		if ($product->amount > 0) {
+//			$this->session->set_flashdata('message', 'Sản phẩm còn trong cửa hàng, không thể xoá');
+//			redirect(admin_url('product'));
+//		}
+		if($product->status == 1){
+			$data = array(
+				'status' => 0
+			);
 		}
-		$data = array(
-			'status' => 0
-		);
+		else{
+			$data = array(
+				'status' => 1
+			);
+		}
 
 		if ($this->product_model->update($product->id, $data)) {
 			$this->session->set_flashdata('message', 'Xoá thành công');
 		} else {
 			$this->session->set_flashdata('message', 'Xoá không thành công');
 		}
-		redirect(admin_url('product'));
+		redirect(admin_url('product/list/all'));
 
 	}
 }

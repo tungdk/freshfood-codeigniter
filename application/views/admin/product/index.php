@@ -8,7 +8,7 @@
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= admin_url('home')?>">Trang quản trị</a></li>
+						<li class="breadcrumb-item"><a href="<?= admin_url('home') ?>">Trang quản trị</a></li>
 						<li class="breadcrumb-item active">Sản phẩm</li>
 					</ol>
 				</div><!-- /.col -->
@@ -22,44 +22,79 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12 ">
-					<a href="<?= admin_url('product/trash')?>" class="btn btn-default float-right"><i class="fa fa-trash"></i> Thùng rác</a>
-					<a href="<?= admin_url('product/add')?>" class="btn btn-success float-right"><i class="fa fa-plus"></i> Thêm mới</a>
+					<ul class="nav nav-tabs">
+						<?php $segment = $this->uri->segment(4); ?>
+						<li class="nav-item">
+							<a class="nav-link <?php if($segment == 'all'){echo 'active';} ?>" href="<?php echo admin_url('product/list/all') ?>">Tất cả</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if($segment == 'active'){echo 'active';} ?>" href="<?php echo admin_url('product/list/active') ?>">Còn hàng</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if($segment == 'soldout'){echo 'active';} ?>" href="<?php echo admin_url('product/list/soldout') ?>">Hết hàng</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if($segment == 'unlisted'){echo 'active';} ?>" href="<?= admin_url('product/list/unlisted') ?>">Đã ẩn</a>
+						</li>
+					</ul>
+					<a href="<?= admin_url('product/add') ?>" class="btn btn-success float-right"><i
+								class="fa fa-plus"></i> Thêm mới</a>
 				</div>
 				<!-- /.col-md-6 -->
-				<?php $this->load->view('admin/message', $this->data);?>
+				<?php $this->load->view('admin/message', $this->data); ?>
 				<div class="col-md-12">
-					<table class="table table-striped table-bordered" style="width:100%">
+					<table id="example" class="table table-bordered" style="width:100%">
 						<thead>
 						<tr>
 							<th scope="col">ID</th>
-							<th scope="col">Ảnh</th>
-							<th scope="col">Tên sản phẩm</th>
-							<th scope="col">Số lượng</th>
-							<th scope="col">Giá tiền</th>
-							<th scope="col">Đã bán</th>
+							<th scope="col" style="width: 45%">Sản phẩm</th>
 							<th scope="col">Danh mục</th>
-							<th scope="col">Trạng thái</th>
+							<th scope="col">Giá</th>
+							<th scope="col">Kho hàng</th>
+							<th scope="col">Đã bán</th>
 							<th scope="col">Action</th>
 						</tr>
 						</thead>
 						<tbody>
 
-						<?php foreach($list as $product): ?>
-						<tr>
-							<th scope="row"><?= $product->id ?></th>
-							<td><img src="<?= base_url('uploads/products/'). $product->image ?>" style="height: 100px"></td>
-							<td><?= $product->name ?></td>
-							<td><?= $product->discount ?></td>
-							<td><?= $product->price ?></td>
-							<td><?= $product->buyed ?></td>
-							<td><?= $product->price ?></td>
-							<td><input type="checkbox" <?php if($product->status == 1){echo 'checked';} ?> ></td>
-							<td>
-								<a href="<?= admin_url('product/edit/'.$product->id)?>" class="btn btn-warning"><i class="fa fa-edit"></i> Sửa</a>
-								<a href="<?= admin_url('product/deleted_at/'.$product->id)?>" class="btn btn-danger <?php if($product->status == 0){echo 'disabled';} ?>" onclick="return confirm('Bạn có muốn xoá không?');" id="deleted_at" ><i class="fa fa-trash"></i> Xoá</a>
-							</td>
-						</tr>
-						<?php endforeach;?>
+						<?php foreach ($list as $product): ?>
+							<tr>
+								<th scope="row"><?= $product->product_id ?></th>
+								<td>
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-2">
+												<img src="<?= base_url('uploads/products/') . $product->image ?>"
+													 style="width: 100%">
+											</div>
+											<div class="col-md-7" style="padding-left: 20px">
+												<div class="row">
+													<div class="col-md-12" style="padding-top: 10px">
+														<h5 style="color: #000000"><?= $product->product_name ?></h5>
+													</div>
+													<div class="col-md-12">
+														<span>Xem: <?= $product->views ?></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td><?= $product->category_name ?></td>
+								<td><span style="color: red"><?php echo number_format($product->price) ?> đ</span></td>
+								<td><?= $product->amount ?></td>
+								<td><?= $product->buyed ?></td>
+								<td>
+									<a href="<?= admin_url('product/edit/' . $product->product_id) ?>"
+									   class=" ">Sửa</a> -|-
+									<?php if ($product->status == 0):?>
+										<a href="<?= admin_url('product/deleted_at/' . $product->product_id) ?>" onclick="return confirm('Bạn có chắc chắn muốn hiện sản phẩm?');" id="show_at"> Hiện</a>
+									<?php else: ?>
+										<a href="<?= admin_url('product/deleted_at/' . $product->product_id) ?>" onclick="return confirm('Bạn có chắc chắn muốn ẩn sản phẩm?');" id="deleted_at"> Ẩn</a>
+									<?php endif; ?>
+								</td>
+							</tr>
+						<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
@@ -70,3 +105,4 @@
 	</div>
 	<!-- /.content -->
 </div>
+

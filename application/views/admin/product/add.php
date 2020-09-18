@@ -38,7 +38,7 @@
 
 						<div class="form-group">
 							<label>Số lượng</label>
-							<input type="number" class="form-control" name="discount" placeholder="Nhập số lượng">
+							<input type="number" class="form-control" name="amount" placeholder="Nhập số lượng">
 						</div>
 
 						<div class="form-group">

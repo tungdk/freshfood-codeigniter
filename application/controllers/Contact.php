@@ -26,6 +26,7 @@ class Contact extends MY_Controller{
 					'name'      => $name,
 					'email'      => $email,
 					'message'      => $message,
+					'created_at' =>  date('Y-m-d H:i:s')
 				);
 				//them moi vao csdl
 				if($this->contact_model->create($data))

@@ -2,7 +2,6 @@
 class Home extends MY_Controller{
 
 	function index(){
-
 		$this->load->model('news_model');
 		$input['order'] = array('created_at', 'DESC');
 		$input['limit'] = array(3, 0);

@@ -61,7 +61,7 @@ class User extends MY_Controller {
 					'phone'    => $this->input->post('phone'),
 					'address'  => $this->input->post('address'),
 					'password' => $password,
-					'created_at'  => now(),
+					'created_at'  =>  date('Y-m-d H:i:s'),
 				);
 				if($this->user_model->create($data))
 				{
@@ -255,7 +255,7 @@ class User extends MY_Controller {
 			$this->session->unset_userdata('user_level_login');
 		}
 		$this->session->set_flashdata('message', 'Đăng xuất thành công');
-		redirect('home');
+		redirect(base_url('home'));
 	}
 
 

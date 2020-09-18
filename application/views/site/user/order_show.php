@@ -72,28 +72,31 @@
 								<div class="col-md-12" style="padding-bottom: 25px; padding-top: 20px">
 									<div class="row">
 										<div class="col-md-8">
-											<div class="row">
-												<div class="col-md-3">
-													<img src="<?php echo base_url('uploads/products/' . $product->image) ?>">
-												</div>
-												<div class="col-md-9">
-													<div class="col-md-12">
-														<span><?= $product->name ?></span>
+											<a href="<?php echo base_url('/' . $product->product_id . '-' . $product->name . '.html') ?>" class="btn">
+												<div class="row">
+													<div class="col-md-3">
+														<img
+															src="<?php echo base_url('uploads/products/' . $product->image) ?>">
 													</div>
-													<div class="col-md-12">
-														<span>x <?= $product->quantity ?></span>
+													<div class="col-md-9">
+														<div class="col-md-12">
+															<span><?= $product->name ?></span>
+														</div>
+														<div class="col-md-12">
+															<span>x <?= $product->quantity ?></span>
+														</div>
 													</div>
 												</div>
-											</div>
+											</a>
 										</div>
 										<div class="col-md-4">
-											<span class="float-right"><?= $product->total ?></span>
+											<span class="float-right"><?php echo number_format($product->total) ?></span>
 										</div>
 									</div>
 								</div>
 							<?php endforeach; ?>
 							<div class="col-md-12" style="color: orangered; font-size: 20px">
-								<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+								<span class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 							</div>
 							<hr>
 						</div>

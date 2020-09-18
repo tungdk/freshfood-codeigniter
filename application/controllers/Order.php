@@ -63,6 +63,11 @@ Class Order extends MY_Controller
 
 		foreach ($query->result() as $row) {
 			$order_total += $row->total;
+			if($row->quantity > $row->amount){
+				$this->session->set_flashdata('message', 'Đặt hàng thất bại. '. $row->name.' chỉ còn '.$row->amount . ' sản phẩm');
+				redirect (base_url('cart'));
+			}
+
 		}
 		$this->data['order_total'] = $order_total;
 
@@ -80,7 +85,6 @@ Class Order extends MY_Controller
 			//nhập liệu chính xác
 			if($this->form_validation->run())
 			{
-//				die('vào đây rồi');
 				//them vao csdl
 				$data = array(
 					'status'   => 0, //trang thai chua thanh toan
@@ -90,7 +94,7 @@ Class Order extends MY_Controller
 					'address'    => $this->input->post('address'),
 					'note'       => $this->input->post('note'), //ghi chú khi mua hàng
 					'payment'        => $order_total,//tong so tien can thanh toan
-					'created_at'       => now(),
+					'created_at'       => date('Y-m-d H:i:s'),
 				);
 
 				//them du lieu vao bang order
@@ -110,6 +114,13 @@ Class Order extends MY_Controller
 						'price'         => $row->price,
 					);
 					$this->orderdetails_model->create($data);
+
+					$product_buyed = $this->product_model->get_info($row->product_id);
+					$databuyed = array(
+						'buyed'      => $product_buyed->buyed + 1,
+						'amount'	=> $product_buyed->amount - $row->quantity
+					);
+					$this->product_model->update($row->product_id, $databuyed);
 				}
 				//xóa toàn bô giỏ hang
 				$this->cart_model->del_rule(array('user_id'=>$this->session->userdata('user_id_login')));

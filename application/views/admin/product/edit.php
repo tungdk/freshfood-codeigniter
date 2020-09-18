@@ -25,20 +25,20 @@
 			<form action="" method="Post">
 
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-8">
 						<div class="form-group">
 							<label>Tên sản phẩm</label>
 							<input type="text" class="form-control" name="name" placeholder="Nhập tên sản phẩm" value="<?= $product->name?>">
 						</div>
 
 						<div class="form-group">
-							<label>Giá tiền</label>
+							<label>Giá</label>
 							<input type="number" class="form-control" name="price" placeholder="Nhập giá sản phẩm" value="<?= $product->price?>">
 						</div>
 
 						<div class="form-group">
 							<label>Số lượng</label>
-							<input type="number" class="form-control" name="discount" placeholder="Nhập số lượng" value="<?= $product->discount?>">
+							<input type="number" class="form-control" name="amount" placeholder="Nhập số lượng" value="<?= $product->amount?>">
 						</div>
 
 						<div class="form-group">
@@ -50,29 +50,30 @@
 							</select>
 						</div>
 
-						<div class="form-group">
-							<label>Ảnh</label>
-							<img src="<?= base_url('uploads/products/' . $product->image) ?>"style="width: 100%">
-							<input type="file" class="form-control" name="image" >
-						</div>
-
 						<?php if($product->status == 0){ ?>
-						<div class="form-group">
-							<label>Trạng thái hiển thị <i>(Tích để hiển thị)</i>&nbsp;&nbsp;</label>
-							<input type="checkbox" name="status" <?php if ($product->status == 1) echo 'checked'; ?>>
-						</div>
+							<div class="form-group">
+								<label>Trạng thái hiển thị <i>(Tích để hiển thị)</i>&nbsp;&nbsp;</label>
+								<input type="checkbox" name="status" <?php if ($product->status == 1) echo 'checked'; ?>>
+							</div>
 						<?php } ?>
-						<button type="submit" class="btn btn-primary">Cập nhật</button>
-
-					</div>
-
-					<div class="col-md-6">
 						<div class="form-group">
 							<label>Nội dung</label>
 							<textarea id="content" name="content" cols="80" rows="10">
 								<?= $product->content?>
        							</textarea>
 						</div>
+
+						<button type="submit" class="btn btn-primary">Cập nhật</button>
+
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Ảnh</label>
+							<img src="<?= base_url('uploads/products/' . $product->image) ?>"style="width: 100%">
+							<input type="file" class="form-control" name="image" >
+						</div>
+
 					</div>
 				</div>
 				<script>

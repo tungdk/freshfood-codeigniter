@@ -91,8 +91,8 @@
 													</div>
 												</div>
 											</div>
-											<hr>
-											<div class="col-md-12 order-detail">
+<!--											<hr>-->
+											<div class="col-md-12 order-detail" style="padding-top: 20px">
 												<div class="row">
 													<?php
 													$this->db->select('*, (order_details.quantity * order_details.price) AS total');
@@ -118,18 +118,19 @@
 																	</div>
 																</div>
 																<div class="col-md-4">
-																	<span class="float-right"><?= $product->total ?></span>
+																	<span class="float-right"><?php echo number_format($product->total) ?></span>
 																</div>
 															</div>
 														</div>
 													<?php endforeach; ?>
-													<div class="col-md-12" style="color: orangered; font-size: 20px">
+													<div class="col-md-12" style="font-size: 20px">
 														<a href="<?php echo base_url('user/purchase/show/'.$order->id)?>" class="btn btn-default" style="font-size: 15px">Xem chi tiết đơn hàng</a>
-														<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+														<span class="float-right" >Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 													</div>
 													<hr>
 												</div>
 											</div>
+											<hr>
 										</div>
 										<hr>
 									<?php endforeach; ?>
@@ -198,14 +199,14 @@
 																	</div>
 																</div>
 																<div class="col-md-4">
-																	<span class="float-right"><?= $product->total ?></span>
+																	<span class="float-right"><?php echo number_format($product->total) ?></span>
 																</div>
 															</div>
 														</div>
 													<?php endforeach; ?>
-													<div class="col-md-12" style="color: orangered; font-size: 20px">
+													<div class="col-md-12" style="font-size: 20px">
 														<a href="<?php echo base_url('user/purchase/show/'.$order->id)?>" class="btn btn-default" style="font-size: 15px">Xem chi tiết đơn hàng</a>
-														<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+														<span class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 													</div>
 													<hr>
 												</div>
@@ -277,14 +278,14 @@
 																	</div>
 																</div>
 																<div class="col-md-4">
-																	<span class="float-right"><?= $product->total ?></span>
+																	<span class="float-right"><?php echo number_format($product->total) ?></span>
 																</div>
 															</div>
 														</div>
 													<?php endforeach; ?>
 													<div class="col-md-12" style="color: orangered; font-size: 20px">
 														<a href="<?php echo base_url('user/purchase/show/'.$order->id)?>" class="btn btn-default" style="font-size: 15px">Xem chi tiết đơn hàng</a>
-														<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+														<span class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 													</div>
 													<hr>
 												</div>
@@ -357,14 +358,14 @@
 																	</div>
 																</div>
 																<div class="col-md-4">
-																	<span class="float-right"><?= $product->total ?></span>
+																	<span class="float-right"><?php echo number_format($product->total) ?></span>
 																</div>
 															</div>
 														</div>
 													<?php endforeach; ?>
-													<div class="col-md-12" style="color: orangered; font-size: 20px">
+													<div class="col-md-12" style=" font-size: 20px">
 														<a href="<?php echo base_url('user/purchase/show/'.$order->id)?>" class="btn btn-default" style="font-size: 15px">Xem chi tiết đơn hàng</a>
-														<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+														<span class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 													</div>
 													<hr>
 												</div>
@@ -437,14 +438,14 @@
 																	</div>
 																</div>
 																<div class="col-md-4">
-																	<span class="float-right"><?= $product->total ?></span>
+																	<span class="float-right"><?php echo number_format($product->total) ?></span>
 																</div>
 															</div>
 														</div>
 													<?php endforeach; ?>
-													<div class="col-md-12" style="color: orangered; font-size: 20px">
+													<div class="col-md-12" style="font-size: 20px">
 														<a href="<?php echo base_url('user/purchase/show/'.$order->id)?>" class="btn btn-default" style="font-size: 15px">Xem chi tiết đơn hàng</a>
-														<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+														<span class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 													</div>
 													<hr>
 												</div>
@@ -516,14 +517,14 @@
 																	</div>
 																</div>
 																<div class="col-md-4">
-																	<span class="float-right"><?= $product->total ?></span>
+																	<span class="float-right"><?php echo number_format($product->total) ?></span>
 																</div>
 															</div>
 														</div>
 													<?php endforeach; ?>
-													<div class="col-md-12" style="color: orangered; font-size: 20px">
+													<div class="col-md-12" style="font-size: 20px">
 														<a href="<?php echo base_url('user/purchase/show/'.$order->id)?>" class="btn btn-default" style="font-size: 15px">Xem chi tiết đơn hàng</a>
-														<span class="float-right">Tổng số tiền: <?= $order->payment ?> VNĐ</span>
+														<span class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> VNĐ</span>
 													</div>
 													<hr>
 												</div>

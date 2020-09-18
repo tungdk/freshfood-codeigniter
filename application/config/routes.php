@@ -56,6 +56,8 @@ $route['blog/(:num)-(:any)'] = 'blog/blog_details/$1';
 $route['(:num)-(:any)'] = 'shop_details/index/$1';
 $route['category/(:num)-(:any)'] = 'category/index/$1';
 
+//$route['admin'] = 'admin/home/index';
+
 //user
 $route['login'] = 'user/login';
 $route['register'] = 'user/register';
@@ -64,3 +66,20 @@ $route['logout'] = 'user/logout';
 $route['user/purchase'] = 'order/purchase';
 $route['user/purchase/delete/(:num)'] = 'order/delete/$1';
 $route['user/purchase/show/(:num)'] = 'order/show/$1';
+
+//admin
+
+//product
+$route['admin/product/list/all'] = 'admin/product/index';
+$route['admin/product/list/active'] = 'admin/product/index';
+$route['admin/product/list/soldout'] = 'admin/product/index';
+$route['admin/product/list/unlisted'] = 'admin/product/index';
+
+
+//order
+$route['admin/order/list/all'] = 'admin/order/index';
+$route['admin/order/list/unpaid'] = 'admin/order/index';
+$route['admin/order/list/shipment'] = 'admin/order/index';
+$route['admin/order/list/shipping'] = 'admin/order/index';
+$route['admin/order/list/completed'] = 'admin/order/index';
+$route['admin/order/list/cancelled'] = 'admin/order/index';

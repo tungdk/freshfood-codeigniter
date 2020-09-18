@@ -41,6 +41,8 @@ Class Category extends MY_Controller{
 				//luu du lieu can them
 				$data = array(
 					'name'      => $name,
+					'slug'		=> create_slug($name),
+					'created_at'=> date('Y-m-d H:i:s')
 				);
 				//them moi vao csdl
 				if($this->category_model->create($data))
@@ -86,7 +88,9 @@ Class Category extends MY_Controller{
 
 				//luu du lieu can them
 				$data = array(
-					'name'      => $name
+					'name'      => $name,
+					'slug'		=> create_slug($name),
+
 				);
 
 				//them moi vao csdl

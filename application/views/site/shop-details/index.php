@@ -2,7 +2,11 @@
 <?php $this->load->view('site/partials/banner') ?>
 <!-- Breadcrumb Section End -->
 
-
+<?php if($product == ''):?>
+	<div class="container" style="padding-top: 100px; padding-bottom: 100px">
+		<h2>Sản phẩm không tồn tại hoặc đã bị xoá.</h2>
+	</div>
+<?php else: ?>
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
 	<div class="container">
@@ -93,7 +97,7 @@
 					</div>
 					<div class="product__item__text">
 						<h6><a href="<?php echo base_url('/'.$product->id.'-'.$product->slug.'.html')?>"><?= $product->name ?></a></h6>
-						<h5><?= $product->price ?> VNĐ</h5>
+						<h5><?php echo number_format($product->price) ?> VNĐ</h5>
 					</div>
 				</div>
 			</div>
@@ -102,4 +106,4 @@
 	</div>
 </section>
 <!-- Related Product Section End -->
-<script></script>
+<?php endif; ?>

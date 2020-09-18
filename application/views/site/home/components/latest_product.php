@@ -12,11 +12,11 @@
 							<?php } ?>
 							<a href="<?php echo base_url('/'.$product->id.'-'.$product->slug.'.html')?>" class="latest-product__item">
 								<div class="latest-product__item__pic">
-									<img src="<?php echo base_url('uploads/products/'.$product->image)?>" alt="" style="width: -1% !important;">
+									<img src="<?php echo base_url('uploads/products/'.$product->image)?>" alt="" style="width: 110px;">
 								</div>
 								<div class="latest-product__item__text">
 									<h6><?= $product->name ?></h6>
-									<span><?= $product->price ?> VNĐ</span>
+									<span><?php echo number_format($product->price) ?> đ</span>
 								</div>
 							</a>
 
@@ -39,11 +39,11 @@
 							<?php } ?>
 							<a href="<?php echo base_url('/'.$product->id.'-'.$product->slug.'.html')?>" class="latest-product__item">
 								<div class="latest-product__item__pic">
-									<img src="<?php echo base_url('uploads/products/'.$product->image)?>" alt="">
+									<img src="<?php echo base_url('uploads/products/'.$product->image)?>" class="latest-product-image" alt="" style="width: 110px;">
 								</div>
 								<div class="latest-product__item__text">
 									<h6><?= $product->name ?></h6>
-									<span><?= $product->price ?> VNĐ</span>
+									<span><?php echo number_format($product->price) ?> đ</span>
 								</div>
 							</a>
 
@@ -66,11 +66,11 @@
 							<?php } ?>
 							<a href="<?php echo base_url('/'.$product->id.'-'.$product->slug.'.html')?>" class="latest-product__item">
 								<div class="latest-product__item__pic">
-									<img src="<?php echo base_url('uploads/products/'.$product->image)?>" alt="">
+									<img src="<?php echo base_url('uploads/products/'.$product->image)?>" class="latest-product-image" alt="" style="width: 110px;">
 								</div>
 								<div class="latest-product__item__text">
 									<h6><?= $product->name ?></h6>
-									<span><?= $product->price ?> VNĐ</span>
+									<span><?php echo number_format($product->price) ?> đ</span>
 								</div>
 							</a>
 

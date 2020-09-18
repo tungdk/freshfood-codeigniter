@@ -61,7 +61,7 @@ class News extends MY_Controller
 					'image' => $this->input->post('image'),
 					'description' => $this->input->post('description'),
 					'content' => $this->input->post('content'),
-					'created_at' => now(),
+					'created_at' =>  date('Y-m-d H:i:s'),
 					'status' => $status,
 				);
 				//them moi vao csdl

@@ -15,15 +15,15 @@
 					<div class="header__top__right">
 						<div class="header__top__right__social">
 							<?php if(isset($facebook)){ ?>
-								<a href="<?= $facebook;?>"><i class="fa fa-facebook"></i></a>
+								<a href="<?= $facebook;?>" target="_blank"><i class="fa fa-facebook"></i></a>
 							<?php } ?>
 
 							<?php if(isset($twitter)){ ?>
-								<a href="<?= $twitter;?>"><i class="fa fa-twitter"></i></a>
+								<a href="<?= $twitter;?>" target="_blank"><i class="fa fa-twitter"></i></a>
 							<?php } ?>
 
 							<?php if(isset($linkedin)){ ?>
-								<a href="<?= $linkedin;?>"><i class="fa fa-linkedin"></i></a>
+								<a href="<?= $linkedin;?>" target="_blank"><i class="fa fa-linkedin"></i></a>
 							<?php } ?>
 
 						</div>
