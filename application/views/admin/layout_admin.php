@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
 	<?php $this->load->view('admin/partials/head'); ?>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini pace-success">
 <div class="wrapper">
 	<!-- Header -->
 	<?php $this->load->view('admin/partials/header'); ?>
@@ -34,9 +34,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
+<script src="plugins/pace-progress/pace.min.js"></script>
+
+
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+
 <script>
 	$(document).ready(function () {
 

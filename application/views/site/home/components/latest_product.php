@@ -5,9 +5,9 @@
 				<div class="latest-product__text">
 					<h4>Sản phẩm mới nhất</h4>
 					<div class="latest-product__slider owl-carousel">
-						<?php foreach ($latest_products as $key=>$product){
+						<?php foreach ($latest_products as $key=>$product){ //lấy 6 sản phẩm
 						?>
-						<?php if($key % 3 == 0){?>
+						<?php if($key % 3 == 0){?> //sản phẩm đàu tiên
 						<div class="latest-prdouct__slider__item">
 							<?php } ?>
 							<a href="<?php echo base_url('/'.$product->id.'-'.$product->slug.'.html')?>" class="latest-product__item">

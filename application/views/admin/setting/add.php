@@ -56,7 +56,7 @@
 								CKEDITOR.replace('setting_value');
 							</script>
 						<?php } ?>
-						<button type="submit" class="btn btn-primary">Cập nhật</button>
+						<button type="submit" class="btn btn-primary">Thêm mới</button>
 					</form>
 				</div>
 			</div>

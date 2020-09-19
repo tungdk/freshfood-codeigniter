@@ -26,6 +26,7 @@ Class Category extends MY_Controller{
 		//neu ma co du lieu post len thi kiem tra
 		if($this->input->post())
 		{
+			$this->load->helper('slug');
 			//load thư viện validate dữ liệu
 			$this->load->library('form_validation');
 			$this->load->helper('form');
@@ -74,6 +75,7 @@ Class Category extends MY_Controller{
 		//neu ma co du lieu post len thi kiem tra
 		if($this->input->post())
 		{
+			$this->load->helper('slug');
 			//load thư viện validate dữ liệu
 			$this->load->library('form_validation');
 			$this->load->helper('form');

@@ -97,7 +97,7 @@
 															<a class="dropdown-item" href="<?php echo admin_url('order/order_update/'.$order->id.'/0')?>">Chờ xác nhận</a>
 															<a class="dropdown-item" href="<?php echo admin_url('order/order_update/'.$order->id.'/1')?>">Chờ lấy hàng</a>
 															<a class="dropdown-item" href="<?php echo admin_url('order/order_update/'.$order->id.'/2')?>">Đang giao</a>
-															<a class="dropdown-item" href="<?php echo admin_url('order/order_update/'.$order->id.'/3')?>">Đã giao</a>
+															<a class="dropdown-item" href="<?php echo admin_url('order/order_update/'.$order->id.'/3')?>" onclick="return confirm('Bạn có chắc chắn đơn hàng đã giao thành công?');">Đã giao</a>
 															<a class="dropdown-item" href="<?php echo admin_url('order/order_update/'.$order->id.'/4')?>" onclick="return confirm('Bạn có chắc chắn huỷ đơn hàng này không?');">Đã huỷ</a>
 														</div>
 													</div>

@@ -1,7 +1,8 @@
 <div class="map">
-	<iframe
-		src="<?= $map ?>"
-		height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<!--	<iframe-->
+<!--		src="--><?//= $map ?><!--"-->
+<!--		height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>-->
+	<?= $map ?>
 	<div class="map-inside">
 		<i class="icon_pin"></i>
 		<div class="inside-widget">

@@ -34,11 +34,11 @@
 					</a>
 				</li>
 
-				<li class="nav-item menu-open">
+				<li class="nav-item ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-clipboard"></i>
 						<p>
-							Quản Lý Đơn Hàng
+							Đơn Hàng
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
@@ -60,11 +60,11 @@
 					</ul>
 				</li>
 
-				<li class="nav-item menu-open">
+				<li class="nav-item ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-shopping-bag"></i>
 						<p>
-							Quản Lý Sản Phẩm
+							Sản Phẩm
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
@@ -85,11 +85,11 @@
 						</li>
 					</ul>
 				</li>
-				<li class="nav-item menu-open">
+				<li class="nav-item ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-list"></i>
 						<p>
-							Quản Lý Danh Mục
+							Danh Mục
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
@@ -111,11 +111,11 @@
 					</ul>
 				</li>
 
-				<li class="nav-item menu-open">
+				<li class="nav-item ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-newspaper"></i>
 						<p>
-							Quản Lý Bài Viết
+							Bài Viết
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
@@ -136,11 +136,11 @@
 						</li>
 					</ul>
 				</li>
-				<li class="nav-item menu-open">
+				<li class="nav-item ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-sliders-h"></i>
 						<p>
-							Quản Lý Slider
+							Slider
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
@@ -162,24 +162,24 @@
 					</ul>
 				</li>
 
-				<li class="nav-item menu-open">
+				<li class="nav-item ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-user"></i>
 						<p>
-							Quản Lý Khách Hàng
+							Khách Hàng
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="<?= admin_url('user') ?>" class="nav-link">
+							<a href="<?= admin_url('user/list/all') ?>" class="nav-link">
 								<p>
 									Tất cả
 								</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="<?= admin_url('user/lock') ?>" class="nav-link">
+							<a href="<?= admin_url('user/list/hidden') ?>" class="nav-link">
 								<p>
 									Đã khoá
 								</p>
@@ -188,7 +188,7 @@
 					</ul>
 				</li>
 
-				<li class="nav-item has-treeview menu-open">
+				<li class="nav-item has-treeview ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-cog"></i>
 						<p>
@@ -202,12 +202,6 @@
 								<p>Cài đặt chung</p>
 							</a>
 						</li>
-<!--						<li class="nav-item">-->
-<!--							<a href="#" class="nav-link">-->
-<!--								<i class="far fa-circle nav-icon"></i>-->
-<!--								<p>Trang liên hệ</p>-->
-<!--							</a>-->
-<!--						</li>-->
 					</ul>
 				</li>
 

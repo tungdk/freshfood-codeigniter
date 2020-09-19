@@ -25,7 +25,7 @@
 					<form action="" method="POST">
 						<div class="form-group">
 							<label>Tên danh mục</label>
-							<input type="name" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục" value="<?= $category->name ?>">
+							<input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục" value="<?= $category->name ?>">
 						</div>
 
 						<button type="submit" class="btn btn-primary">Cập nhật</button>

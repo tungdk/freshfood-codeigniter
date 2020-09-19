@@ -83,3 +83,8 @@ $route['admin/order/list/shipment'] = 'admin/order/index';
 $route['admin/order/list/shipping'] = 'admin/order/index';
 $route['admin/order/list/completed'] = 'admin/order/index';
 $route['admin/order/list/cancelled'] = 'admin/order/index';
+
+//user manager
+$route['admin/user/list/all'] = 'admin/user/index';
+$route['admin/user/list/active'] = 'admin/user/index';
+$route['admin/user/list/hidden'] = 'admin/user/index';

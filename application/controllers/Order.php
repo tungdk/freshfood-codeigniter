@@ -141,70 +141,70 @@ Class Order extends MY_Controller
 	}
 
 	function purchase(){
-		if($this->session->userdata('user_id_login')){
+	if($this->session->userdata('user_id_login')){
 
-			$user_id = $this->session->userdata('user_id_login');
-			$user = $this->user_model->get_info($user_id);
-			if(!$user)
-			{
-				redirect();
-			}
-			$this->data['user']  = $user;
-
-			//lấy tất cả order
-			$input = array();
-			$input['order'] = array('created_at', 'DESC');
-			$input['where']=array('user_id'=>$this->session->userdata('user_id_login'));
-			$list_orders = $this->order_model->get_list($input);
-			$this->data['list_orders'] = $list_orders;
-
-			//lấy order chờ xác nhận
-			$input = array();
-			$input['order'] = array('created_at', 'DESC');
-			$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>0);
-			$list_orders_confirm = $this->order_model->get_list($input);
-			$this->data['list_orders_confirm'] = $list_orders_confirm;
-
-			//Chờ lấy hàng
-			$input = array();
-			$input['order'] = array('created_at', 'DESC');
-			$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>1);
-			$list_orders_order = $this->order_model->get_list($input);
-			$this->data['list_orders_order'] = $list_orders_order;
-
-			//Đang giao
-			$input = array();
-			$input['order'] = array('created_at', 'DESC');
-			$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>2);
-			$list_orders_delivery = $this->order_model->get_list($input);
-			$this->data['list_orders_delivery'] = $list_orders_delivery;
-
-			//Đã giao
-			$input = array();
-			$input['order'] = array('created_at', 'DESC');
-			$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>3);
-			$list_orders_delivered = $this->order_model->get_list($input);
-			$this->data['list_orders_delivered'] = $list_orders_delivered;
-
-			//Huỷ
-			$input = array();
-			$input['order'] = array('created_at', 'DESC');
-			$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>4);
-			$list_orders_delete = $this->order_model->get_list($input);
-			$this->data['list_orders_delete'] = $list_orders_delete;
-
-
-			//hiển thị ra view
-			$this->data['hero_normal']= 'hero_normal';
-			$this->data['page_title'] = 'Lịch sử mua hàng';
-			$this->data['temp'] = 'site/user/purchase';
-			$this->load->view('site/layout_site', $this->data);
-
+		$user_id = $this->session->userdata('user_id_login');
+		$user = $this->user_model->get_info($user_id);
+		if(!$user)
+		{
+			redirect();
 		}
-		else{
-			redirect('login');
-		}
+		$this->data['user']  = $user;
+
+		//lấy tất cả order
+		$input = array();
+		$input['order'] = array('created_at', 'DESC');
+		$input['where']=array('user_id'=>$this->session->userdata('user_id_login'));
+		$list_orders = $this->order_model->get_list($input);
+		$this->data['list_orders'] = $list_orders;
+
+		//lấy order chờ xác nhận
+		$input = array();
+		$input['order'] = array('created_at', 'DESC');
+		$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>0);
+		$list_orders_confirm = $this->order_model->get_list($input);
+		$this->data['list_orders_confirm'] = $list_orders_confirm;
+
+		//Chờ lấy hàng
+		$input = array();
+		$input['order'] = array('created_at', 'DESC');
+		$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>1);
+		$list_orders_order = $this->order_model->get_list($input);
+		$this->data['list_orders_order'] = $list_orders_order;
+
+		//Đang giao
+		$input = array();
+		$input['order'] = array('created_at', 'DESC');
+		$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>2);
+		$list_orders_delivery = $this->order_model->get_list($input);
+		$this->data['list_orders_delivery'] = $list_orders_delivery;
+
+		//Đã giao
+		$input = array();
+		$input['order'] = array('created_at', 'DESC');
+		$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>3);
+		$list_orders_delivered = $this->order_model->get_list($input);
+		$this->data['list_orders_delivered'] = $list_orders_delivered;
+
+		//Huỷ
+		$input = array();
+		$input['order'] = array('created_at', 'DESC');
+		$input['where']=array('user_id'=>$this->session->userdata('user_id_login'), 'status'=>4);
+		$list_orders_delete = $this->order_model->get_list($input);
+		$this->data['list_orders_delete'] = $list_orders_delete;
+
+
+		//hiển thị ra view
+		$this->data['hero_normal']= 'hero_normal';
+		$this->data['page_title'] = 'Lịch sử mua hàng';
+		$this->data['temp'] = 'site/user/purchase';
+		$this->load->view('site/layout_site', $this->data);
+
 	}
+	else{
+		redirect('login');
+	}
+}
 
 	function delete($id){
 		if(!$this->session->userdata('user_id_login')){

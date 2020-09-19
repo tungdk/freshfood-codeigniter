@@ -90,7 +90,7 @@ class User extends MY_Controller {
 		//neu dang dang nhap thi chuyen ve trang thong tin thanh vien
 		if($this->session->userdata('user_id_login'))
 		{
-			redirect(site_url('user'));
+			redirect(base_url(''));
 		}
 
 		$this->load->library('form_validation');
@@ -147,7 +147,7 @@ class User extends MY_Controller {
 		$password = $this->input->post('password');
 		$password = md5($password);
 
-		$where = array('email' => $email , 'password' => $password);
+		$where = array('email' => $email , 'password' => $password, 'active'=>1);
 		$user = $this->user_model->get_info_rule($where);
 		return $user;
 	}
@@ -206,7 +206,7 @@ class User extends MY_Controller {
 							$this->session->set_flashdata('message', 'Không thành công');
 						}
 						//chuyen tới trang danh sách quản trị viên
-						redirect(site_url('user'));
+						redirect(base_url('user'));
 					}
 				}
 			}
