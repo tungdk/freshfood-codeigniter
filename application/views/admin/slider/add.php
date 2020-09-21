@@ -28,12 +28,19 @@
 					<form action="" method="Post">
 						<div class="form-group">
 							<label>Tiêu đề</label>
-							<input type="name" class="form-control" name="title" placeholder="Nhập tiêu đề">
+							<input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề">
+						</div>
+
+						<div class="form-group">
+							<label>Link</label>
+							<textarea type="text" class="form-control" name="link"
+									  placeholder="Nhập liên kết"
+									  cols="5"></textarea>
 						</div>
 
 						<div class="form-group">
 							<label>Mô tả ngắn</label>
-							<input type="name" class="form-control" name="description" placeholder="Nhập tên mô tả ngắn">
+							<input type="text" class="form-control" name="description" placeholder="Nhập tên mô tả ngắn">
 						</div>
 
 						<div class="form-group">

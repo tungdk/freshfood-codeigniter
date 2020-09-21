@@ -24,7 +24,7 @@
 					</div>
 				</div>
 			<?php endforeach; ?>
-			<div class="product__pagination">
+			<div class="product__pagination col-md-12">
 				<a href="#">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>

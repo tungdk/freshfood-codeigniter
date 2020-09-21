@@ -65,6 +65,11 @@
 
 					<div class="col-md-6">
 						<div class="form-group">
+							<label>Mô tả ngắn</label>
+							<textarea class="form-control" name="description" ></textarea>
+						</div>
+
+						<div class="form-group">
 							<label>Nội dung</label>
 							<textarea id="content" name="content" cols="80" rows="10">
 

@@ -56,6 +56,12 @@
 								<input type="checkbox" name="status" <?php if ($product->status == 1) echo 'checked'; ?>>
 							</div>
 						<?php } ?>
+
+						<div class="form-group">
+							<label>Mô tả ngắn</label>
+							<textarea class="form-control" name="discription" rows="5"><?= $product->description ?></textarea>
+						</div>
+
 						<div class="form-group">
 							<label>Nội dung</label>
 							<textarea id="content" name="content" cols="80" rows="10">

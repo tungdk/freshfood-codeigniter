@@ -83,19 +83,41 @@ class Cart extends MY_Controller
 	*/
 	function update()
 	{
-		//thong gio hang
-		$carts = $this->cart->contents();
-		foreach ($carts as $key => $row) {
-			//tong so luong san pham
-			$total_qty = $this->input->post('qty_' . $row['id']);
-			$data = array();
-			$data['rowid'] = $key;
-			$data['qty'] = $total_qty;
-			$this->cart->update($data);
+		if (!$this->session->userdata('user_id_login')) {
+			redirect(base_url('login'));
 		}
+		if ($this->input->post()) {
 
-		//chuyen sang trang danh sach san pham trong gio hang
-		redirect('cart');
+			$this->load->library('form_validation');
+			$this->load->helper('form');
+
+			$this->form_validation->set_rules('cart_id', 'Mã giỏ hàng', 'required|integer');
+			$this->form_validation->set_rules('quantity', 'Số lượng', 'required|integer|greater_than[0]');
+
+
+			//nhập liệu chính xác
+			if ($this->form_validation->run()) {
+				$cart_id = $this->input->post('cart_id');
+				$quantity = $this->input->post('quantity');
+
+				if($cart = $this->cart_model->get_info($cart_id)){
+
+					echo "<pre>";
+					print_r($cart);
+					if($cart->user_id == $this->session->userdata('user_id_login')){
+						$data = array(
+							'quantity'=>$quantity
+						);
+
+						$this->cart_model->update($cart_id, $data);
+						$this->session->set_flashdata('message', 'Cập nhật giỏ hàng thành công');
+					}
+				}
+
+			}
+		}
+		redirect(base_url('cart'));
+
 	}
 
 	function delete($id)

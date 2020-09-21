@@ -175,7 +175,7 @@ class User extends MY_Controller {
 				{
 					$password = $this->input->post('password');
 
-					$this->form_validation->set_rules('name', 'Tên', 'required|min_length[8]');
+					$this->form_validation->set_rules('name', 'Tên', 'required');
 					if($password)
 					{
 						$this->form_validation->set_rules('password', 'Mật khẩu', 'required|min_length[6]');

@@ -3,6 +3,11 @@
 <?php if ($this->session->userdata('user_id_login')): ?>
 	<div class="section" style="margin-top: 50px">
 		<div class="container">
+			<?php if ($this->session->flashdata('message')): ?>
+				<div class="nNote nInformation hideit">
+					<h5><strong>Thông báo: </strong><?php echo $this->session->flashdata('message') ?></h5>
+				</div>
+			<?php endif; ?>
 			<div class="row">
 				<div class="col-lg-3 account-left">
 					<div class="info-account" style="text-align: center">

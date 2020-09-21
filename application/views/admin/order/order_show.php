@@ -101,8 +101,12 @@
 								</div>
 							<?php endforeach; ?>
 							<div class="col-md-12" style="color: orangered; font-size: 20px">
+
 							<span
 								class="float-right">Tổng số tiền: <?php echo number_format($order->payment) ?> đ</span>
+								<a href="<?php echo admin_url('order/print_order/' . $order->id) ?>"
+								   class="btn btn-success float-right" style="font-size: 15px; margin-right: 30px">In đơn
+									hàng</a>
 							</div>
 							<hr>
 						</div>

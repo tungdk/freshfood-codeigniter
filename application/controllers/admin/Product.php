@@ -15,6 +15,7 @@ class Product extends MY_Controller
 		$this->db->select('*, categories.name AS category_name, products.id AS product_id, products.name AS product_name');
 		$this->db->from('products');
 		$this->db->join('categories', 'products.category_id = categories.id');
+		$this->db->order_by('products.created_at','DESC');
 
 		if($segment == 'active'){
 			$this->db->where('products.status',1);
@@ -59,6 +60,7 @@ class Product extends MY_Controller
 			$this->form_validation->set_rules('image', 'Ảnh', 'required');
 			$this->form_validation->set_rules('content', 'Nội dung', 'required');
 			$this->form_validation->set_rules('category_id', 'Danh mục', 'required');
+			$this->form_validation->set_rules('description', 'Mô tả ngắn', 'required');
 
 			//nhập liệu chính xác
 			if ($this->form_validation->run()) {
@@ -84,6 +86,7 @@ class Product extends MY_Controller
 					'category_id' => $this->input->post('category_id'),
 					'created_at' => date('Y-m-d H:i:s'),
 					'status' => $status,
+					'description' => $this->input->post('description')
 				);
 				//them moi vao csdl
 				//lay nội dung của biến message
@@ -93,7 +96,7 @@ class Product extends MY_Controller
 				if ($this->product_model->create($data)) {
 					//tạo ra nội dung thông báo
 					$this->session->set_flashdata('message', 'Thêm mới dữ liệu thành công');
-					redirect(admin_url('product'));
+					redirect(admin_url('product/list/all'));
 				} else {
 					$this->session->set_flashdata('message', 'Không thêm được');
 					redirect(admin_url('product/add'));;
@@ -141,7 +144,6 @@ class Product extends MY_Controller
 
 			//nhập liệu chính xác
 			if ($this->form_validation->run()) {
-				$status = ($this->input->post('status')) ? 1 : 0;
 
 				if ($this->input->post('image')) {
 					//lay ten file anh minh hoa duoc update len
@@ -162,7 +164,6 @@ class Product extends MY_Controller
 						'category_id' => $this->input->post('category_id'),
 						'amount' => $this->input->post('amount'),
 						'content' => $this->input->post('content'),
-						'status' => $status,
 					);
 
 				} else {
@@ -223,9 +224,9 @@ class Product extends MY_Controller
 		}
 
 		if ($this->product_model->update($product->id, $data)) {
-			$this->session->set_flashdata('message', 'Xoá thành công');
+			$this->session->set_flashdata('message', 'Ản sản phẩm thành công');
 		} else {
-			$this->session->set_flashdata('message', 'Xoá không thành công');
+			$this->session->set_flashdata('message', 'Ẩn sản phẩm thất bại');
 		}
 		redirect(admin_url('product/list/all'));
 

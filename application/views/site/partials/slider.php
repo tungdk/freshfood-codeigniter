@@ -12,8 +12,8 @@
 				<a href="<?= $slider->link ?>"  target="_blank"><img src="<?php echo base_url('uploads/sliders/'.$slider->thumbnail) ?>"
 					 class="d-block w-100" alt="..."></a>
 				<div class="carousel-caption d-none d-md-block">
-					<h5><?= $slider->title ?></h5>
-					<p><?= $slider->description ?></p>
+					<h5 style="color: white"><?= $slider->title ?></h5>
+					<p style="color: white"><?= $slider->description ?></p>
 				</div>
 			</div>
 		<?php endforeach; ?>

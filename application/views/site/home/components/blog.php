@@ -20,7 +20,7 @@
 <!--							<li><i class="fa fa-comment-o"></i> 5</li>-->
 						</ul>
 						<h5><a href="<?php echo base_url('blog/'. $new->id .'-'. $new->slug.'.html')?>"><?= $new->title?></a></h5>
-						<p><?= $new->description?>></p>
+						<p><?= $new->description?></p>
 					</div>
 				</div>
 			</div>

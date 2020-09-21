@@ -1,6 +1,8 @@
 <?php
 class Category extends MY_Controller{
 	function index($id){
+		$this->load->model('category_model');
+		$category = $this->category_model->get_info($id);
 		$this->load->model('product_model');
 
 		//lấy toàn bộ sản phẩm lọc theo ngày
@@ -27,7 +29,7 @@ class Category extends MY_Controller{
 		$this->data['views_products'] = $views_products;
 
 		$this->data['hero_normal']= 'hero_normal';
-		$this->data['page_title'] = 'Danh mục sản phẩm';
+		$this->data['page_title'] = $category->name;
 		$this->data['temp'] = 'site/category/index';
 		$this->load->view('site/layout_site', $this->data);
 	}

@@ -22,7 +22,7 @@
 			<div class="col-lg-6 col-md-6">
 				<div class="product__details__text">
 					<h3><?= $product->name ?></h3>
-					<div class="product__details__price"><?= $product->price ?> VNĐ</div>
+					<div class="product__details__price"><?= number_format($product->price) ?> đ</div>
 					<p><?= $product->description ?></p>
 					<div class="product__details__quantity">
 						<div class="quantity">
@@ -31,9 +31,6 @@
 							</div>
 						</div>
 					</div>
-					<script>
-						var s = document.getElementById('quantity').value;
-					</script>
 					<a href="" data-url="<?php echo base_url('cart/add/'.$product->id.'/1') ?> " class="primary-btn add_to_cart">Thêm vào giỏ hàng</a>
 				</div>
 			</div>
@@ -92,7 +89,7 @@
 						<ul class="product__item__pic__hover">
 <!--							<li><a href="#"><i class="fa fa-heart"></i></a></li>-->
 <!--							<li><a href="#"><i class="fa fa-retweet"></i></a></li>-->
-							<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+							<li><a href="" data-url="<?php echo base_url('cart/add/'.$product->id.'/1') ?> " class=" add_to_cart"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
 					<div class="product__item__text">

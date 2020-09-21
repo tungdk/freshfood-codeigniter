@@ -46,6 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 		// Cấu hình các nhãn phân trang
 		$('#example').dataTable({
+			aaSorting: [[0, 'desc']],
 			"language": {
 				"sProcessing": "Đang xử lý...",
 				"sLengthMenu": "Xem _MENU_ mục",

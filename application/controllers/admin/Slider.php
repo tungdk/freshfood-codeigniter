@@ -54,6 +54,7 @@ class Slider extends MY_Controller
 			$this->form_validation->set_rules('title', 'Tiêu đề', 'required');
 			$this->form_validation->set_rules('description', 'Mô tả', 'required');
 			$this->form_validation->set_rules('thumbnail', 'Ảnh', 'required');
+			$this->form_validation->set_rules('link', 'Đường dẫn', 'required');
 
 			//nhập liệu chính xác
 			if ($this->form_validation->run()) {
@@ -73,6 +74,7 @@ class Slider extends MY_Controller
 					'title' => $this->input->post('title'),
 					'thumbnail' => $this->input->post('thumbnail'),
 					'description' => $this->input->post('description'),
+					'link' => $this->input->post('link'),
 					'status' => $status,
 				);
 				//them moi vao csdl
