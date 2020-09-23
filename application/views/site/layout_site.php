@@ -35,7 +35,13 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="js/cart.js"></script>
+	<!-- facebook -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=701066940668768&autoLogAppEvents=1"></script>
 
+	<!-- zalo -->
+	<div class="zalo-chat-widget" data-oaid="2874983549580581079" data-welcome-message="Katun Blog rất vui khi được hỗ trợ bạn!" data-autopopup="60" data-width="300" data-height="400" style="margin-right: 40px;margin-bottom: 100px"></div>
+	<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 </body>
 
 </html>
