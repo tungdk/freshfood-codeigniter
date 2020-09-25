@@ -188,6 +188,25 @@
 					</ul>
 				</li>
 
+				<li class="nav-item ">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-mail-bulk"></i>
+						<p>
+							Phản hồi
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="<?= admin_url('contact') ?>" class="nav-link">
+								<p>
+									Tất cả
+								</p>
+							</a>
+						</li>
+					</ul>
+				</li>
+
 				<li class="nav-item has-treeview ">
 					<a href="#" class="nav-link">
 						<i class="nav-icon fas fa-cog"></i>

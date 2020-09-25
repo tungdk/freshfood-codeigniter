@@ -16,6 +16,7 @@ class Cart extends MY_Controller
 			$this->db->from('carts');
 			$this->db->join('products', 'carts.product_id = products.id');
 			$this->db->where('carts.user_id', $this->session->userdata('user_id_login'));
+			$this->db->where('products.status', 1);
 			$query = $this->db->get();
 			$this->data['cart_products'] = $query->result();
 

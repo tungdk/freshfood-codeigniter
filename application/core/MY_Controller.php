@@ -54,11 +54,20 @@ class MY_Controller extends CI_Controller
 					$user = $this->user_model->get_info($user_id_login);
 					$this->data['user'] = $user;
 
-					$input =array();
-					$this->load->model('cart_model');
-					$input['where'] = array('user_id'=>$user_id_login);
-					$cart_product = $this->cart_model->get_list($input);
-					$this->data['count_cart'] = count($cart_product);
+					// $input =array();
+					// $this->load->model('cart_model');
+					// $input['where'] = array('user_id'=>$user_id_login);
+					// $cart_product = $this->cart_model->get_list($input);
+					// $this->data['count_cart'] = count($cart_product);
+
+					$this->db->select('* , carts.id AS cart_id, (carts.quantity * products.price) AS total');
+					$this->db->from('carts');
+					$this->db->join('products', 'carts.product_id = products.id');
+					$this->db->where('carts.user_id', $this->session->userdata('user_id_login'));
+					$this->db->where('products.status', 1);
+					$query = $this->db->get();
+					// $this->data['cart_products'] = $query->result();
+					$this->data['count_cart'] = count($query->result());
 				}
 			}
 		}
