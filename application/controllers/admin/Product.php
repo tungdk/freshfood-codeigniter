@@ -22,7 +22,7 @@ class Product extends MY_Controller
 			$this->db->where('products.amount >',0);
 		}
 		elseif ($segment == 'soldout'){
-			$this->db->where('products.amount',0);
+			$this->db->where('products.amount <=',10);
 			$this->db->where('products.status',1);
 		}
 		elseif ($segment == 'unlisted'){
@@ -174,7 +174,6 @@ class Product extends MY_Controller
 						'amount' => $this->input->post('amount'),
 						'category_id' => $this->input->post('category_id'),
 						'content' => $this->input->post('content'),
-						'status' => $status,
 					);
 				}
 

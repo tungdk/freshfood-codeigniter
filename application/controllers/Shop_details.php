@@ -28,7 +28,7 @@ class Shop_details extends MY_Controller{
 		$input =array();
 		$input['order'] = array('created_at', 'DESC');
 		$input['limit'] = array(4, 0);
-		$input['where'] = array('category_id'=>$product->category_id, 'id !='=> $id);
+		$input['where'] = array('category_id'=>$product->category_id, 'id !='=> $id, 'status'=>1);
 		$four_recent_products = $this->product_model->get_list($input);
 		$this->data['four_recent_products'] = $four_recent_products;
 
